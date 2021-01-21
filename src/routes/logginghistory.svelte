@@ -1,12 +1,27 @@
 <script>
   
     // components for this layout
-    import Footer from "../components/Footer.svelte";
-  import MapExample from "../components/MapExample.svelte";
+    import Footer from "../components/FooterSmall.svelte";
+  import CardLogging from "../components/CardLogging.svelte";
+  import MapLogging from "../components/MapLogging.svelte";
+
+
 
   </script>
+
+<section class="mt-16 p-4">
+  <div class="grid grid-cols-3 gap-4">
+    <div class="col-span-3 md:col-span-1 ">
+      <CardLogging region={"British Columbia"} aside={"Info"}></CardLogging>
+    </div>
+    <div class="col-span-3 md:col-span-2 ">
+      <MapLogging region={"British Columbia"} aside={"Map"}></MapLogging>
+    </div>
+  </div>
+</section>
   
-  <section class="mt-10 md:mt-40 pb-40 relative bg-gray-200">
+  
+  <!-- <section class="mt-10 md:mt-40 pb-40 relative bg-gray-200">
    
     <div class="container mx-auto">
       <div class="flex flex-wrap items-center">
@@ -32,6 +47,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <Footer />
   

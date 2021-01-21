@@ -65,7 +65,6 @@ let icon = faMap;
         </a>
         </li>
         <li class="flex items-center">
-           
           <a
           rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
           class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
