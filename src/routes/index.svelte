@@ -10,7 +10,7 @@
 	}
 </style>
 
-<Navbar></Navbar>
+<!-- <Navbar></Navbar> -->
 
 <div class:centerer={true}> <!-- Here's how you could extract conditional class groups with @apply -->
 	<ExampleComponent

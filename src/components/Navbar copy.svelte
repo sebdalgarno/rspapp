@@ -1,5 +1,5 @@
 <script>
-  // import { link } from "svelte-routing/src";
+  import { link } from "svelte-routing";
 
   // core components
   let navbarOpen = false;
@@ -8,20 +8,9 @@
   function setNavbarOpen() {
     navbarOpen = !navbarOpen;
   }
-  export let path;
-  console.log(path)
-  export let segment;
+  export let pathname;
 
 </script>
-<!-- 
-<nav>
-	<ul>
-		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
-		<li><a aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers">Forest Layers</a></li>
-
-		<li><a rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory">Logging History</a></li>
-	</ul>
-</nav> -->
 
 <nav
   class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow"
@@ -33,8 +22,9 @@
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
       <a
-      aria-current="{segment === undefined ? 'page' : undefined}" href="."
+        use:link
         class="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"
+        href="/"
       >
         BC Forest Tool
       </a>
@@ -50,13 +40,25 @@
       class="lg:flex flex-grow items-center {navbarOpen ? 'block':'hidden'}"
       id="example-navbar-warning"
     >
+      <!-- <ul class="flex flex-col lg:flex-row list-none mr-auto">
+        <li class="flex items-center">
+          <a
+            class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"
+            href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus?ref=ns-index-navbar"
+          >
+            <i class="text-gray-500 far fa-file-alt text-lg leading-lg mr-2" />
+            Docs
+          </a>
+        </li>
+      </ul> -->
       <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
         <li class="flex items-center">
           <a
-          rel=prefetch aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers"
-          class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          use:link
+          href="/forestlayers"
+          class="{pathname.indexOf('/forestlayers') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <i
-          class="fas fa-map mr-2 text-sm {path.indexOf('forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}"
+          class="fas fa-map mr-2 text-sm {pathname.indexOf('/forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}"
         ></i>
           Forest Layers
         </a>
@@ -64,17 +66,19 @@
         <li class="flex items-center">
            
           <a
-          rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
-          class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          use:link
+          href="/logginghistory"
+          class="{pathname.indexOf('/logginghistory') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <i
-              class="fas fa-map mr-2 text-sm {path.indexOf('/logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}"
+              class="fas fa-map mr-2 text-sm {pathname.indexOf('/logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}"
             ></i>
           Logging History
         </a>
         </li>
         <li class="flex items-center">
           <a
-          aria-current="{segment === undefined ? 'page' : undefined}" href="."
+          use:link
+          href="/"
           class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           Home
         </a>
