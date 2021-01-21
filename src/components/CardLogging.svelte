@@ -1,7 +1,7 @@
 <script>
     import Badge from "./Badge.svelte"
 	export let region;
-	export let aside;
+	export let badge;
 </script>
 
 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -13,7 +13,7 @@
         </h3>
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-          <Badge text={aside}></Badge>
+          <Badge text={badge}></Badge>
       </div>
     </div>
   </div>
