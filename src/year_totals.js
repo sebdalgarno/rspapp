@@ -22,7 +22,7 @@ for (var key in data_clean) {
   totals.push(data_clean[key].total);
 }
 
-let data = {"data": data_clean, "totals":totals, "years":years}
+let data = data_clean
 
 // const data = csv
 //   .split("\n")

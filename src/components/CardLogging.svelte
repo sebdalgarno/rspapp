@@ -2,12 +2,11 @@
     import Badge from "./Badge.svelte"
     import ChartLogging from "./ChartLogging.svelte"
     import Button from "./Button.svelte"
-
     import {year_min, year_max} from "../consts"
 
 	export let region;
     export let badge;
-    let year = year_min;
+    export let year;
 
     function addYear() {
     if (year != year_max) {
@@ -37,14 +36,8 @@
   </div>
   <div class="block relative w-full p-4">
     <div class="items-center w-full bg-transparent border-collapse ">
-        <div class="text-center flex justify-center">
-            <Button outline={false} caption={'-'} on:minus-year={minusYear} />
-            <div class="inline-block">
-              <p class="text-5xl text-gray-500">{year}</p>
-            </div>
-            <Button outline={false} caption={'+'} on:add-year={addYear} />
-          </div>
-        <ChartLogging/>
+        
+        <ChartLogging {year}/>
     </div>
 </div>
 </div>
