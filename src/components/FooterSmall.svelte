@@ -15,6 +15,7 @@
             <a
               href="https://www.northbeachconsulting.ca"
               class="text-gray-500 hover:text-gray-700 text-xs font-semibold py-1"
+              target="_blank"
             >
               North Beach Consulting
             </a>
@@ -33,6 +34,7 @@
               <a
                 href="https://makeway.org/project/rainforest-solutions-implementation-project/"
                 class="text-gray-500 hover:text-gray-700 text-sm block py-1 px-3"
+                target="_blank"
               >
                 About Us
               </a>
