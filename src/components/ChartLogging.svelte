@@ -2,8 +2,6 @@
     import { onMount } from "svelte";
     import Chart from "chart.js";
     import data from "../year_totals.js";
-
-    console.log(data)
   
     onMount(async () => {
       let config = {
@@ -13,7 +11,7 @@
           datasets: [
             {
               label: "Logged (Ha)",
-              backgroundColor: "#818CF8",
+              backgroundColor: "#F87171",
               borderColor: "#1F2937",
               data: data.totals,
             },
