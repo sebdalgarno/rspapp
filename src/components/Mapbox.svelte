@@ -1,7 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import { mapbox, key } from "../mapbox.js";
-  import Button from "@smui/button";
   import {
     year_min,
     year_max,
@@ -338,6 +337,6 @@
   }
 </style>
 
-<div class="map bg-black" bind:this={container}>
+<div class="h-96" bind:this={container}>
   <slot />
 </div>

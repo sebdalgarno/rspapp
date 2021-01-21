@@ -1,5 +1,6 @@
 <script>
     import Badge from "./Badge.svelte"
+    import Mapbox from "./Mapbox.svelte"
 	export let region;
 	export let aside;
 </script>
@@ -16,5 +17,12 @@
           <Badge text={aside}></Badge>
       </div>
     </div>
+   
   </div>
+  <div class="block relative w-full p-4">
+    <div class="items-center w-full bg-transparent border-collapse ">
+        <Mapbox></Mapbox>
+
+    </div>
+</div>
 </div>
