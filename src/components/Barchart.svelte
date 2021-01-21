@@ -3,7 +3,6 @@
   // import { spring } from 'svelte/motion';
   import { onMount } from "svelte";
   import data from "../year_totals.js";
-  import { scaleThreshold } from "d3-scale";
   import { year_min, year_max } from "../consts.js";
 
   export let palette;
@@ -150,7 +149,7 @@
   margin: 0 auto;
 } -->
 
-<div class="p-4 absolute w-3/4 h-2/5 text-center my-0 mx-auto ml-2" style="height: 40%;" bind:clientWidth={w} bind:this={el}>
+<div class="p-4 text-center my-0 mx-auto h-48 " style="" bind:clientWidth={w} bind:this={el}>
   <div class="background">
     <Pancake.Chart {x1} {x2} y1={0} y2={max}>
       <Pancake.Grid horizontal count={5} let:value let:first>

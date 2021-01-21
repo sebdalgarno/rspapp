@@ -1,5 +1,6 @@
 <script>
     import Badge from "./Badge.svelte"
+    import ChartLogging from "./ChartLogging.svelte"
 	export let region;
 	export let badge;
 </script>
@@ -17,4 +18,10 @@
       </div>
     </div>
   </div>
+  <div class="block relative w-full p-4">
+    <div class="items-center w-full bg-transparent border-collapse ">
+        <ChartLogging/>
+    </div>
 </div>
+</div>
+
