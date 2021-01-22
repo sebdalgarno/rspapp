@@ -15,7 +15,9 @@
   <div class="block relative w-full p-4">
     <div class="items-center w-full bg-transparent border-collapse ">
       <div class="text-center flex justify-center">
-        <h3>This is an app ...</h3>
+        <h3>Look for the</h3>
+        <Badge/>
+        <h3>buttons to get tips on how best to explore the data.</h3>
       </div>
     </div>
   </div>

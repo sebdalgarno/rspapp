@@ -1,16 +1,18 @@
 <script>
   // components for this layout
-  import Footer from "../components/FooterSmall.svelte";
-  import CardLogging from "../components/CardLogging.svelte";
   import MapLogging from "../components/MapLogging.svelte";
-  import Button from "../components/Button.svelte";
-  import NumberInput from "../components/NumberInput.svelte";
-  import {year_min, year_max} from "../consts"
+  import Tips from "../components/Tips.svelte";
+  import Card from "../components/Card.svelte";
+  import CardHeader from "../components/CardHeader.svelte";
 
+  import ChartLogging from "../components/ChartLogging.svelte";
+
+  import NumberInput from "../components/NumberInput.svelte";
+  import { year_min, year_max } from "../consts";
 
   let year = 1940;
-  let region = "British Columbia"
-  let badge = "Map"
+  let region = "British Columbia";
+  let badge = "Map";
 
   function addYear() {
     if (year != year_max) {
@@ -25,26 +27,59 @@
   }
 </script>
 
-<section class="mt-16 p-4">
-  <div class="grid grid-cols-5 gap-4">
-    <div class="col-span-5 md:col-span-2 ">
-      <div class="text-center flex justify-center">
-        <!-- <Button outline={false} caption={'-'} on:minus-year={minusYear} />
-        <div class="inline-block">
-          <p class="text-5xl text-gray-500" {year}>{year}</p>
-        </div>
-        <Button outline={false} caption={'+'} on:add-year={addYear} /> -->
-        <!-- <span>Show logging history from</span>
-        <NumberInput {year} />
-        <span>to</span> -->
-        <NumberInput {year} />
-      </div>
-      <CardLogging region={"British Columbia"} badge={"Info"} {year} />
-    </div>
-    <div class="col-span-5 md:col-span-3 ">
-      <MapLogging region={"British Columbia"} badge={"Map"} />
-    </div>
+<div class="grid grid-cols-5 gap-4">
+  <div class="col-span-5 md:col-span-2 ">
+        <Card>
+          <CardHeader>
+            <h3 class="font-semibold text-base text-gray-800">
+              {region}
+            </h3>
+            <Tips text={"Tips"} />
+          </CardHeader>
+          
+          <div class="">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+              <h3 class="font-semibold text-base text-gray-800">
+                {region}
+              </h3>
+            </div>
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+              <Tips text={"Tips"} />
+            </div>
+          </div>
+            <!-- <h3 class="font-semibold text-base text-gray-800">
+              {region}
+            </h3>
+            <div class=" w-full px-4 max-w-full flex-grow flex-1 text-right">
+              <Badge text={badge} />
+            </div> -->
+            <div>
+              <!-- <h3>Show logging history from 1940 to</h3> -->
+              <NumberInput {year} />
+            </div>
+            <div class="block relative w-full">
+              <div class="items-center w-full bg-transparent border-collapse ">
+                <ChartLogging {year} />
+              </div>
+            </div>
+        </Card>
   </div>
-</section>
+  <div class="col-span-5 md:col-span-3 ">
+    <Card>
+      <div>
+        <h3 class="font-semibold text-base text-gray-800">
+          {region}
+        </h3>
+        <div class=" flex-grow flex-1 text-right">
+          <Tips />
+        </div>
+        <div class="block w-full pt-2">
+          <div class="items-center w-full bg-transparent border-collapse ">
+            <MapLogging />
+          </div>
+        </div>
+      </div>
+    </Card>
+  </div>
+</div>
 
-<Footer />

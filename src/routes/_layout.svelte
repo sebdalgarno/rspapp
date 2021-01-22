@@ -1,4 +1,6 @@
 <script context="module">
+	  import Footer from "../components/FooterSmall.svelte";
+
 	export const preload = () => {};
 </script>
 
@@ -28,4 +30,8 @@
 	</title>
 </svelte:head>
 
-<slot />
+<main class="mt-16 px-3 md:px-6 lg:px-8 2xl:px-14 py-4 bg-gray-50">
+	<slot />
+</main>
+<Footer />
+
