@@ -4,34 +4,36 @@
   import data from "../year_totals.js";
 
   export let year;
-  console.log(year)
 
   let selected;
   $: selected = data.filter(function (x) {
-    return x.year <= year;
+    return x.year == year;
   });
 
-  let years = [];
-  $: for (var key in selected) {
-    years.push(selected[key].year);
+  let barchart;
+  $: if(typeof barchart === "object"){
+    addData(barchart, selected[0].year, selected[0].total)
   }
-
-  let totals = [];
-  $: for (var key in selected) {
-    totals.push(selected[key].total);
-  }
+  
+  function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
 
   onMount(async () => {
     let config = {
       type: "bar",
       data: {
-        labels: years,
+        labels: [],
         datasets: [
           {
             label: "Logged (Ha)",
             backgroundColor: "#F87171",
             borderColor: "#1F2937",
-            data: totals,
+            data: [],
           },
         ],
       },
@@ -47,7 +49,7 @@
       },
     };
     let ctx = document.getElementById("bar-chart").getContext("2d");
-    window.myBar = new Chart(ctx, config);
+    barchart = new Chart(ctx, config);
   });
 </script>
 
