@@ -22,7 +22,7 @@
       <button on:click={minusYear} class="  text-gray-600 hover:text-gray-700 hover:bg-gray-100 h-full w-20 rounded-l cursor-pointer outline-none">
         <span class="m-auto text-2xl font-thin">−</span>
       </button>
-      <input bind:value={year} type="number" class=" focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none text-5xl" name="custom-input-number" />
+      <input bind:value={year} type="number"  class="disabled:bg-opacity-0 focus:outline-none text-center w-full font-semibold text-md  md:text-basecursor-default flex items-center text-gray-800  outline-none text-5xl" name="custom-input-number" />
     <button on:click={addYear} class=" text-gray-600 hover:text-gray-700 hover:bg-gray-100 h-full w-20 rounded-r cursor-pointer">
       <span class="m-auto text-2xl font-thin">+</span>
     </button>
