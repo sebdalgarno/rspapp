@@ -67,9 +67,9 @@
     </Card>
   </div>
   <div class="col-span-5 md:col-span-3 ">
-    <Card>
+    <Card map={true}>
       <CardHeader {region} />
-      <div class="block w-full pt-2">
+      <div class="block w-full">
         <div class="items-center w-full bg-transparent border-collapse ">
           <div class="absolute p-2">
             <Legend {palette} />

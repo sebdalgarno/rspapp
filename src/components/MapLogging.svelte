@@ -125,7 +125,7 @@
 
   </style>
   
-  <div class="" style="height: 640px;" bind:this={container}>
+  <div class="rounded" style="height: 640px;" bind:this={container}>
     <slot />
   </div>
   

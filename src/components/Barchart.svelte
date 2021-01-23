@@ -26,7 +26,6 @@
   let el;
   let w = 410;
   let closest;
-  console.log(closest);
 
   function range(a, b, step) {
     const array = [];
@@ -64,7 +63,6 @@
         x.age = l - age[i];
       });
     }
-    // console.log(selected.length);
   }
 </script>
 
