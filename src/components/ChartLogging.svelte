@@ -1,37 +1,29 @@
 <script>
   import { onMount } from "svelte";
   import Chart from "chart.js";
-  import data from "../year_totals.js";
 
   export let year;
+  export let year_min;
+  export let data_year;
+  export let data_total;
 
-  let selected;
-  $: selected = data.filter(function (x) {
-    return x.year == year;
-  });
+  
 
   let barchart;
   $: if(typeof barchart === "object"){
-    modifyData(barchart, selected)
-3     
+    modifyData(barchart, data_year)     
   }
   
-  function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    chart.update();
-}
+ 
 
-function modifyData(chart, selected){
+function modifyData(chart, data){
     let current = chart.data.labels.slice(-1)[0];
     if(year > current){
-        addData(chart, selected[0].year, selected[0].total)
+        addData(chart, data[0].year, data[0].total)
       } else if(year < current) {
         removeData(barchart)
       } else {
-        addData(chart, selected[0].year, selected[0].total)
+        addData(chart, data[0].year, data[0].total)
       };
 }
 
@@ -39,6 +31,14 @@ function removeData(chart) {
     chart.data.labels.splice(-1,1);
     chart.data.datasets.forEach((dataset) => {
         dataset.data.splice(-1,1);
+    });
+    chart.update();
+}
+
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
     });
     chart.update();
 }

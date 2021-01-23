@@ -12,15 +12,7 @@ let data_clean = json.map((obj) => {
   };
 });
 
-let years = [];
-for (var key in data_clean) {
-  years.push(data_clean[key].year);
-}
 
-let totals = [];
-for (var key in data_clean) {
-  totals.push(data_clean[key].total);
-}
 
 let data = data_clean
 
