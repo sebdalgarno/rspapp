@@ -57,24 +57,10 @@
 <div class="grid grid-cols-5 gap-4">
   <div class="col-span-5 md:col-span-2 ">
         <Card>
-          <CardHeader>
-            <h3 class="font-semibold text-base text-gray-800">
-              {region}
-            </h3>
-            <Tips text={"Tips"} />
-          </CardHeader>
-          
-          <!-- <div class="">
-            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-              <h3 class="font-semibold text-base text-gray-800">
-                {region}
-              </h3>
-            </div>
-            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-              <Tips text={"Tips"} />
-            </div>
-          </div> -->
-              <NumberInput bind:year={year} />
+          <CardHeader {region} ></CardHeader>
+              <div class="items-center mx-auto">
+                <NumberInput bind:year={year} />
+              </div>
 
             <div class="block relative w-full">
               <div class="items-center w-full bg-transparent border-collapse ">
@@ -86,19 +72,12 @@
   </div>
   <div class="col-span-5 md:col-span-3 ">
     <Card>
-      <div>
-        <h3 class="font-semibold text-base text-gray-800">
-          {region}
-        </h3>
-        <div class=" flex-grow flex-1 text-right">
-          <Tips />
-        </div>
+        <CardHeader {region} ></CardHeader>
         <div class="block w-full pt-2">
           <div class="items-center w-full bg-transparent border-collapse ">
             <MapLogging {year} {map_palette} {bounds}  />
           </div>
         </div>
-      </div>
     </Card>
   </div>
 </div>
