@@ -7,13 +7,11 @@ let icon = faMap;
 
   // core components
   let navbarOpen = false;
-  // console.log(location)
 
   function setNavbarOpen() {
     navbarOpen = !navbarOpen;
   }
   export let path;
-  console.log(path)
   export let segment;
 
 </script>

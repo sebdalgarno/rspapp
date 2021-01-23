@@ -60,7 +60,7 @@
         <div class="items-center w-full bg-transparent border-collapse">
           <ChartLogging {year} {data_year} {data_total} />
         </div >
-        <div class="py-3">
+        <div class="py-5 text-center">
           <InfoLogging {year} {year_min} {data_year} {data_total} />
         </div>
       </div>
@@ -73,9 +73,7 @@
         <div class="items-center w-full bg-transparent border-collapse ">
           <div class="absolute p-2">
             <Legend {palette} />
-
           </div>
-
           <MapLogging {year} {map_palette} {bounds} />
         </div>
       </div>
