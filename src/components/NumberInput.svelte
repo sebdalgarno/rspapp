@@ -18,9 +18,7 @@
   </script>
 
 <div class="custom-number-input h-10 w-56 m-10">
-    <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">
-    </label>
-    <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+    <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent">
       <button on:click={minusYear} class="  text-gray-600 hover:text-gray-700 hover:bg-gray-100 h-full w-20 rounded-l cursor-pointer outline-none">
         <span class="m-auto text-2xl font-thin">−</span>
       </button>
