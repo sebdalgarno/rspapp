@@ -7,6 +7,7 @@
   import InfoLogging from "../components/InfoLogging.svelte";
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
+  import Legend from "../components/Legend.svelte";
 
   import chroma from "chroma-js";
   import data from "../year_totals.js";
@@ -70,6 +71,11 @@
       <CardHeader {region} />
       <div class="block w-full pt-2">
         <div class="items-center w-full bg-transparent border-collapse ">
+          <div class="absolute p-2">
+            <Legend {palette} />
+
+          </div>
+
           <MapLogging {year} {map_palette} {bounds} />
         </div>
       </div>
