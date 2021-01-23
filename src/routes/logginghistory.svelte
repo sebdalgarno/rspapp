@@ -27,7 +27,7 @@
     .scale()
     .correctLightness()
     .colors(80);
-  
+
   for (let i = 80; i < yeardiff; i++) {
     palette.push(palette[79]);
   }
@@ -49,26 +49,27 @@
   });
 </script>
 
-<div class="grid grid-cols-5 gap-4">
-  <div class="col-span-5 md:col-span-2 ">
-    <Card>
-      <CardHeader {region} />
-      <div class="items-center mx-auto -mt-6">
+  <Card>
+    <CardHeader {region} />
+
+    <div class="grid grid-cols-5 gap-12">
+
+    <div class="col-span-5 md:col-span-2 ">
+      <div class="flex flex-row justify-center ">
         <NumberInput bind:year />
       </div>
       <div class="block relative w-full">
         <div class="items-center w-full bg-transparent border-collapse">
           <ChartLogging {year} {data_year} {data_total} />
-        </div >
+        </div>
         <div class="pt-4 text-center">
           <InfoLogging {year} {year_min} {data_year} {data_total} />
         </div>
       </div>
-    </Card>
-  </div>
-  <div class="col-span-5 md:col-span-3 ">
-    <Card map={true}>
-      <CardHeader {region} />
+      <!-- </Card> -->
+    </div>
+    <div class="col-span-5 md:col-span-3 ">
+      <!-- <Card map={true}></Card> -->
       <div class="block w-full">
         <div class="items-center w-full bg-transparent border-collapse ">
           <div class="absolute p-2">
@@ -77,6 +78,7 @@
           <MapLogging {year} {map_palette} {bounds} />
         </div>
       </div>
-    </Card>
-  </div>
+    </div>
 </div>
+</Card>
+

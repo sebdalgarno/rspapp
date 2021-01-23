@@ -18,8 +18,6 @@
     return el.year;
   });
 
-  $: console.log(data_total)
-
   let barchart;
   $: if (typeof barchart === "object") {
     modifyData(barchart, data_year);
