@@ -14,10 +14,6 @@
     export let year = year_min;
     export let map_palette;
     export let bounds;
-
-    // console.log(bounds)
-    // console.log(map_palette)
-    // console.log(year)
     
     $: if (typeof map !== "undefined" && done) {
       filterLoggedAreas(year);
@@ -56,7 +52,6 @@
     }
   
     onMount(async () => {
-        console.log(bounds)
       map = new mapbox.Map({
         container,
         style: mapbox_style,
@@ -127,22 +122,10 @@
   </script>
   
   <style>
-    .map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: 0.1;
-    }
-  
-    .mapbox-popup {
-      z-index: 100;
-      max-width: 400px;
-      font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    }
+
   </style>
   
-  <div class="h-96" bind:this={container}>
+  <div class="" style="height: 640px;" bind:this={container}>
     <slot />
   </div>
   

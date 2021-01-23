@@ -60,7 +60,7 @@
         <div class="items-center w-full bg-transparent border-collapse">
           <ChartLogging {year} {data_year} {data_total} />
         </div >
-        <div class="py-5 text-center">
+        <div class="pt-4 text-center">
           <InfoLogging {year} {year_min} {data_year} {data_total} />
         </div>
       </div>

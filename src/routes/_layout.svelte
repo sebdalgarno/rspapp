@@ -30,7 +30,7 @@
 	</title>
 </svelte:head>
 
-<main class="mt-16 px-3 md:px-6 lg:px-8 2xl:px-14 py-4 bg-gray-50">
+<main class="mt-16 px-3 md:px-6 py-4 bg-gray-50">
 	<slot />
 </main>
 <Footer />
