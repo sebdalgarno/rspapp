@@ -19,7 +19,7 @@
   } from "../consts";
 
   let year = 1940;
-  let region = "British Columbia";
+  let region = "";
   let yeardiff = year_max - year_min;
   let palette = chroma
     .bezier(base_colors)
@@ -52,11 +52,11 @@
   <div class="col-span-5 md:col-span-2 ">
     <Card>
       <CardHeader {region} />
-      <div class="items-center mx-auto">
+      <div class="items-center mx-auto -mt-6">
         <NumberInput bind:year />
       </div>
       <div class="block relative w-full">
-        <div class="items-center w-full bg-transparent border-collapse ">
+        <div class="items-center w-full bg-transparent border-collapse">
           <ChartLogging {year} {data_year} {data_total} />
         </div >
         <div class="py-3">

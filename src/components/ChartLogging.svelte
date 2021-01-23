@@ -72,8 +72,23 @@
             {
               categoryPercentage: 1.0,
               barPercentage: 1.0,
+              gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            }
             },
           ],
+          yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Logged (Ha)'
+      },
+      gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            }
+    }]
+        },
+        legend: {
+            display: false,
         },
       },
     };
