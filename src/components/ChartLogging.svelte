@@ -12,14 +12,8 @@
 
   let barchart;
   $: if(typeof barchart === "object"){
-      let current = barchart.data.labels.slice(-1)[0]
-      if(year > current){
-        addData(barchart, selected[0].year, selected[0].total)
-      } else if(year < current) {
-        removeData(barchart)
-      } else {
-        addData(barchart, selected[0].year, selected[0].total)
-      }
+    modifyData(barchart, selected)
+3     
   }
   
   function addData(chart, label, data) {
@@ -28,6 +22,17 @@
         dataset.data.push(data);
     });
     chart.update();
+}
+
+function modifyData(chart, selected){
+    let current = chart.data.labels.slice(-1)[0];
+    if(year > current){
+        addData(chart, selected[0].year, selected[0].total)
+      } else if(year < current) {
+        removeData(barchart)
+      } else {
+        addData(chart, selected[0].year, selected[0].total)
+      };
 }
 
 function removeData(chart) {
