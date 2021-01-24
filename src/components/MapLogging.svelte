@@ -98,7 +98,7 @@
         //     ],
         //   },
         // });
-        map.addControl(new mapbox.AttributionControl(), "bottom-right");
+        map.addControl(new mapbox.NavigationControl());
         map.fitBounds(bounds);
         done = true;
       });

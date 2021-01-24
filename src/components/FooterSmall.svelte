@@ -19,7 +19,7 @@
             >
               North Beach Consulting
             </a>
-            <a href='https://www.mapbox.com/about/maps/' class="block text-xs" target='_blank'>Maps &copy; Mapbox &copy; OpenStreetMap</a>
+            <a href='https://www.mapbox.com/about/maps/' class="block text-xs text-gray-400 hover:text-gray-600" target='_blank'>Maps &copy; Mapbox &copy; OpenStreetMap</a>
           </div>
         </div>
         <div class="w-full md:w-8/12 px-4">
