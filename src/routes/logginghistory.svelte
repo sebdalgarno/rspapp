@@ -19,7 +19,7 @@
     bounds,
   } from "../consts";
 
-  let year = 1940;
+  let year = 1980;
   let region = "";
   let yeardiff = year_max - year_min;
   let palette = chroma

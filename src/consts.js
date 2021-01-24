@@ -17,8 +17,8 @@ export const bounds = [
   [-131.4439827038, 54.3097491876],
 ];
 
-export const year_min = 1900;
+export const year_min = 1970;
 
-export const year_max = 2017;
+export const year_max = 2019;
 
 export const base_colors = ["#ffff14", "#d44e25"];

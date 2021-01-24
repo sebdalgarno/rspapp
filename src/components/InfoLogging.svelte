@@ -35,10 +35,10 @@
 
 <style>
   .logged {
-    @apply text-red-500 text-2xl;
+    @apply text-red-500 text-xl;
   }
   .year {
-    @apply text-indigo-700 text-2xl;
+    @apply text-indigo-700 text-xl;
   }
   .text {
      @apply text-gray-800;   
