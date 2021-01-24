@@ -7,7 +7,6 @@
   import InfoLogging from "../components/InfoLogging.svelte";
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
-  import PlayButton from "../components/PlayButton.svelte";
   import Legend from "../components/Legend.svelte";
 
   import chroma from "chroma-js";
@@ -48,6 +47,27 @@
   $: data_total = data.filter(function (x) {
     return x.year <= year;
   });
+
+  function incrementYear() {
+    const playing = setInterval(() => {
+      if(year != year_max && caption == "Pause"){
+        year++;
+      } else {
+        caption = "Play"
+        clearInterval(playing)
+      }
+    }, 600)
+  }
+
+  let caption = "Play"
+  function togglePlay() {
+    if(caption == "Play"){
+      caption = "Pause"
+    } else {
+      caption = "Play"
+    }
+    incrementYear()
+  }
 </script>
 
   <Card>
@@ -55,7 +75,7 @@
     <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
       <div class="flex flex-row justify-center ">
-        <NumberInput bind:year />
+        <NumberInput bind:year on:play-pause={togglePlay} {caption} />
         <!-- <PlayButton /> -->
       </div>
       <div class="block relative w-full">

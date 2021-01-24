@@ -1,3 +1,19 @@
-<div class="">
-    <div class="flex justify-center items-center h-screen"> <button class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"><i class="fa fa-play fa-2x text-white" id="play-btn"></i></button> </div>
-</div>
+<script>
+    import { createEventDispatcher } from "svelte";
+
+export let caption;
+
+const dispatch = createEventDispatcher();
+
+function playPause() {
+    dispatch("play-pause");
+  }
+    
+ 
+</script>
+
+<button class=" bg-indigo-200 hover:bg-opacity-100 bg-opacity-80 text-indigo-900 hover:text-indigo-900 block px-3 rounded-full text-xs"
+on:click={playPause}>
+    {caption} 
+</button>
+
