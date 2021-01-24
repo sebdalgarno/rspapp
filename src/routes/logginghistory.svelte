@@ -26,10 +26,10 @@
     .bezier(base_colors)
     .scale()
     .correctLightness()
-    .colors(80);
+    .colors(40);
 
-  for (let i = 80; i < yeardiff; i++) {
-    palette.push(palette[79]);
+  for (let i = 40; i < yeardiff; i++) {
+    palette.push(palette[39]);
   }
 
   let map_palette = [];
@@ -51,9 +51,7 @@
 
   <Card>
     <CardHeader {region} />
-
     <div class="grid grid-cols-5 gap-12">
-
     <div class="col-span-5 md:col-span-2 ">
       <div class="flex flex-row justify-center ">
         <NumberInput bind:year />

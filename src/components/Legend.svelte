@@ -3,10 +3,10 @@
 
   let legend_palette = [
     { value: "0", color: palette[0] },
+    { value: "10", color: palette[10] },
     { value: "20", color: palette[20] },
-    { value: "40", color: palette[40] },
-    { value: "60", color: palette[60] },
-    { value: ">80", color: palette[80] }
+    { value: "30", color: palette[30] },
+    { value: ">40", color: palette[40] }
 
     // { value: 116, color: palette[116] }
   ];
@@ -15,7 +15,7 @@
 
 <style>
   .legend {
-    @apply text-gray-600 p-2 z-50 text-xs;
+    @apply text-gray-800 p-2 z-50 text-xs bg-white bg-opacity-70;
   }
 
   .legendspan {
