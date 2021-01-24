@@ -7,6 +7,7 @@
   import InfoLogging from "../components/InfoLogging.svelte";
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
+  import PlayButton from "../components/PlayButton.svelte";
   import Legend from "../components/Legend.svelte";
 
   import chroma from "chroma-js";
@@ -52,9 +53,10 @@
   <Card>
     <CardHeader {region} />
     <div class="grid grid-cols-5 gap-12">
-    <div class="col-span-5 md:col-span-2 ">
+    <div class="col-span-5 lg:col-span-2 ">
       <div class="flex flex-row justify-center ">
         <NumberInput bind:year />
+        <!-- <PlayButton /> -->
       </div>
       <div class="block relative w-full">
         <div class="items-center w-full bg-transparent border-collapse">
@@ -66,7 +68,7 @@
       </div>
       <!-- </Card> -->
     </div>
-    <div class="col-span-5 md:col-span-3 ">
+    <div class="col-span-5 lg:col-span-3 ">
       <!-- <Card map={true}></Card> -->
       <div class="block w-full">
         <div class="items-center w-full bg-transparent border-collapse ">

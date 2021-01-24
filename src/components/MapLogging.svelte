@@ -59,7 +59,7 @@
         zoom: 3,
         bearing: 0,
         attributionControl: false,
-        logoPosition: "bottom-right",
+        // logoPosition: "bottom-right",
       });
   
       map.on("load", function () {
@@ -122,7 +122,10 @@
   </script>
   
   <style>
+.mapboxgl-ctrl-attrib-inner {
+    display: none !important;
 
+}
   </style>
   
   <div class="rounded" style="height: 640px;" bind:this={container}>
