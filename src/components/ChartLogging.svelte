@@ -6,6 +6,8 @@
   export let year_min;
   export let data_year;
   export let data_total;
+  export let palette;
+  console.log(palette)
 
   let initial_totals;
   let initial_labels;
@@ -17,10 +19,20 @@
   initial_labels = data_total.map(function (el) {
     return el.year;
   });
+  
+  let yeardiff
+  $: if(year){
+    yeardiff = year - year_min + 1;
+  } 
+
+  let new_palette = [];
+  $: new_palette = palette.slice(0, yeardiff).reverse();
 
   let barchart;
+  
   $: if (typeof barchart === "object") {
     modifyData(barchart, data_year);
+    modifyColor(barchart, new_palette)
   }
 
   function modifyData(chart, data) {
@@ -29,9 +41,7 @@
       addData(chart, data[0].year, data[0].total);
     } else if (year < current) {
       removeData(barchart);
-    } else {
-      addData(chart, data[0].year, data[0].total);
-    }
+    } 
   }
 
   function removeData(chart) {
@@ -50,6 +60,26 @@
     chart.update();
   }
 
+//   var bars = chart.labels[0]; //I need this line
+//   for(i=0;i<bars.length;i++){
+//     var color="green";
+
+//     if(bars[i].label == "bad"){
+//         color="red";
+//     }
+//     else if(bars[i].label == "average"){
+//         color="orange"
+//     }
+//     else{
+//         color="green"
+//     }
+//     bars[i].fillColor = color;
+// }
+  function modifyColor(chart, palette){
+    chart.data.datasets[0].backgroundColor = new_palette;
+    chart.update();
+  }
+
   onMount(async () => {
     let config = {
       type: "bar",
@@ -58,7 +88,7 @@
         datasets: [
           {
             label: "Logged (Ha)",
-            backgroundColor: "#F87171",
+            backgroundColor: new_palette,
             borderColor: "#1F2937",
             data: initial_totals,
           },
