@@ -28,22 +28,22 @@
     let hoveredStateId = null;
   
     function filterAccumulate() {
-      map.setFilter("logged_simp", ["<=", "YearHarvested", year]);
-      map.setFilter("logged", ["<=", "YearHarvested", year]);
+      map.setFilter("logged_simplify", ["<=", "year", year]);
+    //   map.setFilter("logged_simplify", ["<=", "year", year]);
     }
   
     let paint_property = (year) => {
       return [
         "match",
-        ["-", year, ["number", ["get", "YearHarvested"]]],
+        ["-", year, ["number", ["get", "year"]]],
         ...map_palette,
         "#AAAAAA",
       ];
     };
   
     function setPalette(year) {
-      map.setPaintProperty("logged_simp", "fill-color", paint_property(year));
-      map.setPaintProperty("logged", "fill-color", paint_property(year));
+      map.setPaintProperty("logged_simplify", "fill-color", paint_property(year));
+    //   map.setPaintProperty("logged", "fill-color", paint_property(year));
     }
   
     function filterLoggedAreas(year) {
@@ -56,24 +56,24 @@
         container,
         style: mapbox_style,
         center: coordinates,
-        zoom: 5,
-        bearing: 10,
+        zoom: 3,
+        bearing: 0,
         attributionControl: false,
         logoPosition: "bottom-right",
       });
   
       map.on("load", function () {
-        map.addSource("logged", {
+        map.addSource("logged_bc-7vrdmw", {
           type: "vector",
           url: tileset_logging,
-          promoteId: "YearHarvested",
+          promoteId: "year",
         });
         map.addLayer({
-          id: "logged_simp",
-          source: "logged",
+          id: "logged_simplify",
+          source: "logged_bc-7vrdmw",
           "source-layer": source_layer[0],
           type: "fill",
-          filter: ["==", "YearHarvested", year],
+          filter: ["==", "year", year],
           paint: {
             "fill-opacity": [
               "case",
@@ -83,21 +83,21 @@
             ],
           },
         });
-        map.addLayer({
-          id: "logged",
-          source: "logged",
-          "source-layer": source_layer[1],
-          type: "fill",
-          filter: ["==", "YearHarvested", year],
-          paint: {
-            "fill-opacity": [
-              "case",
-              ["boolean", ["feature-state", "hover"], false],
-              0.5,
-              1,
-            ],
-          },
-        });
+        // map.addLayer({
+        //   id: "logged",
+        //   source: "logged",
+        //   "source-layer": source_layer[1],
+        //   type: "fill",
+        //   filter: ["==", "YearHarvested", year],
+        //   paint: {
+        //     "fill-opacity": [
+        //       "case",
+        //       ["boolean", ["feature-state", "hover"], false],
+        //       0.5,
+        //       1,
+        //     ],
+        //   },
+        // });
         map.addControl(new mapbox.AttributionControl(), "bottom-right");
         map.fitBounds(bounds);
         done = true;
