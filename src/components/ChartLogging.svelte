@@ -7,7 +7,6 @@
   export let data_year;
   export let data_total;
   export let palette;
-  console.log(palette)
 
   let initial_totals;
   let initial_labels;

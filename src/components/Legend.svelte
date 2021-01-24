@@ -15,7 +15,7 @@
 
 <style>
   .legend {
-    @apply text-gray-700 p-2 z-50 text-xs bg-white bg-opacity-60 rounded;
+    @apply text-gray-700 p-2 z-50 text-xs bg-white bg-opacity-80 rounded;
   }
 
   .legendspan {
