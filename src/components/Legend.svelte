@@ -15,7 +15,7 @@
 
 <style>
   .legend {
-    @apply text-gray-800 p-2 z-50 text-xs bg-white bg-opacity-70;
+    @apply text-gray-200 p-2 z-50 text-xs bg-white bg-opacity-10 rounded;
   }
 
   .legendspan {
@@ -24,7 +24,7 @@
 </style>
 
 <div class="legend">
-  <div class="text-xs">
+  <div class="text- mb-2">
     Years Since
     <br />
     Harvested

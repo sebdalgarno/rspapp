@@ -1,13 +1,16 @@
 export const mapbox_key =
   "pk.eyJ1Ijoibm9ydGhiZWFjaGNvbnN1bHRpbmciLCJhIjoiY2tld2ZkdXA1MmZ5cjJxcXZ4aWN5eWRteSJ9.GmGSqnuACz13roMMveTdsw";
 
-export const tileset_logging = "mapbox://snorthbeachconsulting.7cbyqapy";
+export const tileset_logging = "mapbox://northbeachconsulting.7cbyqapy";
 
-export const source_layer = ["loggedsimplify"];
+export const source_layer = ["logged_simplify"];
 
+// export const mapbox_style =
+//   "mapbox://styles/northbeachconsulting/ckk9ybto8082e17p6xofk5mc2";
+
+  // dark
 export const mapbox_style =
-  "mapbox://styles/northbeachconsulting/ckk9ybto8082e17p6xofk5mc2";
-
+"mapbox://styles/northbeachconsulting/ckkasz85604qh17nvxf01f46g"
 // export const tileset_base = "mapbox://northbeachconsulting.0q6r8ewi";
 
 export const coordinates = [-124.75, 54.77];
