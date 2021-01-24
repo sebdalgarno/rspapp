@@ -53,28 +53,28 @@ let icon = faMap;
       id="example-navbar-warning"
     >
       <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-        <li class="flex items-center">
+        <li class="flex items-center hover:bg-gray-100">
           <a
           rel=prefetch aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers"
-          class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="{path.indexOf('forestlayers') !== -1 ? 'text-indigo-700 hover:text-indigo-800':'text-gray-800 hover:text-gray-900'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
   
           Forest Layers
         </a>
         </li>
-        <li class="flex items-center">
+        <li class="flex items-center hover:bg-gray-100">
           <a
           rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
-          class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="{path.indexOf('logginghistory') !== -1 ? 'text-indigo-700 hover:text-indigo-800':'text-gray-800 hover:text-gray-900'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
 
           Logging History
         </a>
         </li>
-        <li class="flex items-center">
+        <li class="flex items-center hover:bg-gray-100">
           <a
           aria-current="{segment === undefined ? 'page' : undefined}" href="."
-          class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="hover:text-gray-900 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           Home
         </a>
         </li>
