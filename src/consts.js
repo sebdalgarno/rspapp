@@ -1,20 +1,20 @@
 export const mapbox_key =
-  "pk.eyJ1Ijoic2VicG9pc3NvbiIsImEiOiJjamk1YXBiYm4waHd0M2twNmM3ODRuZjN4In0.WKHsGJ3K7SWyqO4lObCkfA";
+  "pk.eyJ1Ijoibm9ydGhiZWFjaGNvbnN1bHRpbmciLCJhIjoiY2tld2ZkdXA1MmZ5cjJxcXZ4aWN5eWRteSJ9.GmGSqnuACz13roMMveTdsw";
 
-export const tileset_logging = "mapbox://sebpoisson.agfpul84";
+export const tileset_logging = "mapbox://snorthbeachconsulting.7cbyqapy";
 
-export const source_layer = ["logged_simplify", "logged_dissolve"];
+export const source_layer = ["loggedsimplify"];
 
 export const mapbox_style =
-  "mapbox://styles/sebpoisson/ckara6t9e9h951ikabs369ylg";
+  "mapbox://styles/northbeachconsulting/ckk9ybto8082e17p6xofk5mc2";
 
 // export const tileset_base = "mapbox://northbeachconsulting.0q6r8ewi";
 
-export const coordinates = [-132.6, 53.4];
+export const coordinates = [-124.75, 54.77];
 
 export const bounds = [
-  [-133.2466237072, 52.4921522354],
-  [-131.4439827038, 54.3097491876],
+  [-139.01, 48.29],
+  [-114.09, 60.00],
 ];
 
 export const year_min = 1970;
