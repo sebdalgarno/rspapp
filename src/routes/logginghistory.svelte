@@ -21,7 +21,7 @@
 
   let year = 1980;
   let region = "";
-  let yeardiff = year_max - year_min;
+  let yeardiff = year_max - year_min + 1;
   let palette = chroma
     .bezier(base_colors)
     .scale()
