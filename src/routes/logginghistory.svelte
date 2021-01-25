@@ -83,7 +83,7 @@
       </div>
       <div class="block relative w-full">
         <div class="items-center w-full bg-transparent border-collapse">
-          <ChartLogging {year} {year_min} {data_year} {data_total} {map_palette} {palette} />
+          <ChartLogging {year} {year_min} {data_total} {map_palette} {palette} />
         </div>
         <div class="pt-4 text-center">
           <InfoLogging {year} {year_min} {data_year} {data_total} />

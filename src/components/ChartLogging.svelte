@@ -4,7 +4,6 @@
 
   export let year;
   export let year_min;
-  export let data_year;
   export let data_total;
   export let palette;
 
@@ -45,6 +44,10 @@
     chart.update();
   }
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   onMount(async () => {
     let config = {
       type: "bar",
@@ -71,6 +74,16 @@
             },
           ],
           yAxes: [{
+            ticks: {
+                        beginAtZero:true,
+                        callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                               return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            } else {
+                               return value;
+                            }
+                       }     
+      },
       scaleLabel: {
         display: true,
         labelString: 'Logged (Ha)'
