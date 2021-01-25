@@ -1,11 +1,11 @@
 export const mapbox_key =
   "pk.eyJ1Ijoibm9ydGhiZWFjaGNvbnN1bHRpbmciLCJhIjoiY2tld2ZkdXA1MmZ5cjJxcXZ4aWN5eWRteSJ9.GmGSqnuACz13roMMveTdsw";
 
-export const tileset_logging = "mapbox://northbeachconsulting.1rphj1si";
+export const tileset_logging = "mapbox://northbeachconsulting.6jbkd2ay";
 
-export const source  = ["logged_bc_zgZ3-90vm3r"];
+export const source  = ["logged_bc_zgZ45-68y3li"]
 
-export const source_layer = ["logged_simple10"];
+export const source_layer = ["logged_simple5"];
 
 export const mapbox_style =
   "mapbox://styles/northbeachconsulting/ckk9ybto8082e17p6xofk5mc2";
