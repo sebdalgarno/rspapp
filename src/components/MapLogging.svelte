@@ -7,6 +7,7 @@
       tileset_logging,
       coordinates,
       source_layer,
+      source,
       mapbox_style,
       base_colors,
     } from "../consts";
@@ -28,8 +29,8 @@
     let hoveredStateId = null;
   
     function filterAccumulate() {
-      map.setFilter("logged_simplify", ["<=", "year", year]);
-    //   map.setFilter("logged_simplify", ["<=", "year", year]);
+    //   map.setFilter("logged_simple1", ["<=", "year", year]);
+      map.setFilter("logged_simple10", ["<=", "year", year]);
     }
   
     let paint_property = (year) => {
@@ -42,8 +43,8 @@
     };
   
     function setPalette(year) {
-      map.setPaintProperty("logged_simplify", "fill-color", paint_property(year));
-    //   map.setPaintProperty("logged", "fill-color", paint_property(year));
+    //   map.setPaintProperty("logged_simple1", "fill-color", paint_property(year));
+      map.setPaintProperty("logged_simple10", "fill-color", paint_property(year));
     }
   
     function filterLoggedAreas(year) {
@@ -63,14 +64,14 @@
       });
   
       map.on("load", function () {
-        map.addSource("logged_bc-7vrdmw", {
+        map.addSource(source[0], {
           type: "vector",
           url: tileset_logging,
           promoteId: "year",
         });
         map.addLayer({
-          id: "logged_simplify",
-          source: "logged_bc-7vrdmw",
+          id: "logged_simple10",
+          source: source[0],
           "source-layer": source_layer[0],
           type: "fill",
           filter: ["==", "year", year],
@@ -84,11 +85,11 @@
           },
         });
         // map.addLayer({
-        //   id: "logged",
-        //   source: "logged",
+        //   id: "logged_simple10",
+        //   source: "logged_multilayer-79pr0l",
         //   "source-layer": source_layer[1],
         //   type: "fill",
-        //   filter: ["==", "YearHarvested", year],
+        //   filter: ["==", "year", year],
         //   paint: {
         //     "fill-opacity": [
         //       "case",

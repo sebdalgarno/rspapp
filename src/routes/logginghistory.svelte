@@ -19,7 +19,7 @@
     bounds,
   } from "../consts";
 
-  let year = 1980;
+  let year = 1975;
   let region = "";
   let yeardiff = year_max - year_min + 1;
   let palette = chroma
@@ -56,7 +56,7 @@
         caption = "Play"
         clearInterval(playing)
       }
-    }, 600)
+    }, 1000)
   }
 
   let caption = "Play"
