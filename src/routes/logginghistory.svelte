@@ -19,7 +19,7 @@
     bounds,
   } from "../consts";
 
-  let year = 1975;
+  let year = 2019;
   let region = "";
   let yeardiff = year_max - year_min + 1;
   let palette = chroma
@@ -63,6 +63,9 @@
   function togglePlay() {
     if(caption == "Play"){
       caption = "Pause"
+      if(year == 2019){
+        year = year_min + 1;
+      }
     } else {
       caption = "Play"
     }

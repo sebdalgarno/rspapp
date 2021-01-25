@@ -8,74 +8,40 @@
   export let data_total;
   export let palette;
 
-  let initial_totals;
-  let initial_labels;
-
-  initial_totals = data_total.map(function (el) {
-    return el.total;
-  });
-
-  initial_labels = data_total.map(function (el) {
-    return el.year;
-  });
+  let update_totals;
+  let update_labels;
+  let update_palette = [];
   
   let yeardiff
   $: if(year){
     yeardiff = year - year_min + 1;
   } 
 
-  let new_palette = [];
-  $: new_palette = palette.slice(0, yeardiff).reverse();
+  $: update_totals = data_total.map(function (el) {
+    return el.total;
+  });
+
+  $: update_labels = data_total.map(function (el) {
+    return el.year;
+  });
+  
+  $: update_palette = palette.slice(0, yeardiff).reverse();
 
   let barchart;
   
   $: if (typeof barchart === "object") {
-    modifyData(barchart, data_year);
-    modifyColor(barchart, new_palette)
+    modifyData(barchart, update_totals, update_labels);
+    modifyColor(barchart, update_palette)
   }
 
-  function modifyData(chart, data) {
-    let current = chart.data.labels.slice(-1)[0];
-    if (year > current) {
-      addData(chart, data[0].year, data[0].total);
-    } else if (year < current) {
-      removeData(barchart);
-    } 
-  }
-
-  function removeData(chart) {
-    chart.data.labels.splice(-1, 1);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.splice(-1, 1);
-    });
+  function modifyData(chart, data, labels) {
+    chart.data.datasets[0].data = data;
+    chart.data.labels = labels;
     chart.update();
   }
 
-  function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
-    });
-    chart.update();
-  }
-
-//   var bars = chart.labels[0]; //I need this line
-//   for(i=0;i<bars.length;i++){
-//     var color="green";
-
-//     if(bars[i].label == "bad"){
-//         color="red";
-//     }
-//     else if(bars[i].label == "average"){
-//         color="orange"
-//     }
-//     else{
-//         color="green"
-//     }
-//     bars[i].fillColor = color;
-// }
   function modifyColor(chart, palette){
-    chart.data.datasets[0].backgroundColor = new_palette;
+    chart.data.datasets[0].backgroundColor = palette;
     chart.update();
   }
 
@@ -83,13 +49,13 @@
     let config = {
       type: "bar",
       data: {
-        labels: initial_labels,
+        labels: update_labels,
         datasets: [
           {
             label: "Logged (Ha)",
-            backgroundColor: new_palette,
+            backgroundColor: update_palette,
             borderColor: "#1F2937",
-            data: initial_totals,
+            data: update_totals,
           },
         ],
       },
