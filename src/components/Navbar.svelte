@@ -56,7 +56,7 @@ let icon = faMap;
         <li class="flex items-center">
           <a
           rel=prefetch aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers"
-          class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500':'text-gray-800'} hover:bg-gray-100 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
   
           Forest Layers
@@ -65,7 +65,7 @@ let icon = faMap;
         <li class="flex items-center">
           <a
           rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
-          class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'} px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 ':'text-gray-800' } hover:bg-gray-100  px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
 
           Logging History
@@ -74,7 +74,7 @@ let icon = faMap;
         <li class="flex items-center">
           <a
           aria-current="{segment === undefined ? 'page' : undefined}" href="."
-          class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
+          class="hover:bg-gray-100   text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           Home
         </a>
         </li>

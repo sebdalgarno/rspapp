@@ -20,9 +20,7 @@
 				  <h1 class="text-4xl">Welcome!</h1>
 				  <br>
 				  <div class="flex">
-					<h3>Look for the</h3>
-					<Badge />
-					<h3>buttons to get tips on how best to explore the data.</h3>
+					<h4>more here...</h4>
 				  </div>
 			  </div>
 			</div>
