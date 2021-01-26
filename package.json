@@ -38,8 +38,7 @@
     "sapper-page-loading-bar": "^1.0.0",
     "sirv": "^1.0.10",
     "svelte-loading-spinners": "^0.1.4",
-    "svelte-routing": "^1.5.0",
-    "svelte-simple-modal": "^0.6.1"
+    "svelte-routing": "^1.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -68,6 +67,7 @@
     "sapper": "^0.28.10",
     "svelte": "^3.31.0",
     "svelte-preprocess": "^4.6.1",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.0.2",
+    "svelte-simple-modal": "^0.6.1"
   }
 }

@@ -17,8 +17,8 @@
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
   import Legend from "../components/Legend.svelte";
-  // import Modal from "svelte-simple-modal";
-  // import ModalTips from "../components/ModalTips.svelte";
+  import Modal from "svelte-simple-modal";
+  import ModalTips from "../components/ModalTips.svelte";
 
   import chroma from "chroma-js";
   import {
@@ -83,9 +83,9 @@
 
   <Card>
     <div class="absolute left-3 p-2">
-      <!-- <Modal >
+      <Modal >
         <ModalTips />
-      </Modal> -->
+      </Modal>
   </div>
     <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
