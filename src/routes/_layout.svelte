@@ -48,10 +48,11 @@ import Card from "../components/Card.svelte";
 <main class="mt-16 px-3 md:px-6 py-4 bg-gray-100">
 
 {#if $preloading && $delayedPreloading}
-<div class="centerer h-72">
-	<p>loading...</p>
-</div>
-
+<Card>
+	<div class="centerer h-72">
+		<p>loading...</p>
+	</div>
+</Card>
 {:else}
 <slot />
 {/if}
