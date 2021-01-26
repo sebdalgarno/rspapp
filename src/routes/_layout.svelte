@@ -1,13 +1,3 @@
-<!-- <script context="module">
-
-export async function preload(page, session) {
-		const res = await this.fetch(`year_totals.json`);
-		const year_totals = await res.json();
-
-		return { year_totals };
-	}
-</script> -->
-
 <script>
 	import { stores } from "@sapper/app";
 	import Navbar from '../components/Navbar.svelte';
@@ -48,7 +38,7 @@ import Card from "../components/Card.svelte";
 
 {#if $preloading && $delayedPreloading}
 	<div class="centerer h-72">
-		<p>loading... (I'll add a nicer spiner here)</p>
+		<p>loading... (I'll add a nicer spinner here)</p>
 	</div>
 {:else}
 <slot />
