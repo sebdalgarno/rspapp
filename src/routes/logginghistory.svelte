@@ -1,3 +1,13 @@
+<script context="module">
+
+  export async function preload(page, session) {
+      const res = await this.fetch(`year_totals.json`);
+      const year_totals = await res.json();
+  
+      return { year_totals };
+    }
+  </script>
+
 <script>
   // components for this layout
   import MapLogging from "../components/MapLogging.svelte";
@@ -7,21 +17,18 @@
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
   import Legend from "../components/Legend.svelte";
-  import Modal from "svelte-simple-modal";
-  import ModalTips from "../components/ModalTips.svelte";
+  // import Modal from "svelte-simple-modal";
+  // import ModalTips from "../components/ModalTips.svelte";
 
   import chroma from "chroma-js";
-  import data from "../year_totals.js";
   import {
     base_colors,
-    coordinates,
     year_min,
     year_max,
-    bounds,
   } from "../consts";
 
+  export let year_totals;
   let year = 2019;
-  let region = "";
   let yeardiff = year_max - year_min + 1;
   let palette = chroma
     .bezier(base_colors)
@@ -40,12 +47,12 @@
   }
 
   let data_year;
-  $: data_year = data.filter(function (x) {
+  $: data_year = year_totals.filter(function (x) {
     return x.year == year;
   });
 
   let data_total;
-  $: data_total = data.filter(function (x) {
+  $: data_total = year_totals.filter(function (x) {
     return x.year <= year;
   });
 
@@ -76,9 +83,9 @@
 
   <Card>
     <div class="absolute left-3 p-2">
-      <Modal >
+      <!-- <Modal >
         <ModalTips />
-      </Modal>
+      </Modal> -->
   </div>
     <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
@@ -103,7 +110,7 @@
           <div class="absolute p-2">
             <Legend {palette} />
           </div>
-          <MapLogging {year} {map_palette} {bounds} />
+          <MapLogging {year} {map_palette} />
         </div>
       </div>
     </div>

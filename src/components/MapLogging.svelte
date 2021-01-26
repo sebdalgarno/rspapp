@@ -3,18 +3,16 @@
     import { mapbox, key } from "../mapbox.js";
     import {
       year_min,
-      year_max,
       tileset_logging,
       coordinates,
       source_layer,
       source,
       mapbox_style,
-      base_colors,
+      bounds
     } from "../consts";
   
     export let year = year_min;
     export let map_palette;
-    export let bounds;
     
     $: if (typeof map !== "undefined" && done) {
       filterLoggedAreas(year);

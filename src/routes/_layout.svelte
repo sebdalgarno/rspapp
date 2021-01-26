@@ -1,21 +1,21 @@
-<script context="module">
-	  import Footer from "../components/FooterSmall.svelte";
+<!-- <script context="module">
 
-	export const preload = () => {};
-</script>
+export async function preload(page, session) {
+		const res = await this.fetch(`year_totals.json`);
+		const year_totals = await res.json();
+
+		return { year_totals };
+	}
+</script> -->
 
 <script>
 	import { stores } from "@sapper/app";
 	import Navbar from '../components/Navbar.svelte';
+	import Footer from "../components/FooterSmall.svelte"; 
 
-
-	// You may not want to use `segment`, but it is passed for the time being and will
-	// create a warning if not expected: https://github.com/sveltejs/sapper-template/issues/210
-	// https://github.com/sveltejs/sapper/issues/824
 	export let segment = "";
 	let path = "";
-	// Silence unused export property warning
-	// eslint-disable-next-line no-empty
+
 	if (segment) {}
 
 	const { page } = stores();
