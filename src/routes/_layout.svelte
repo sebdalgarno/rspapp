@@ -30,6 +30,12 @@ import Card from "../components/Card.svelte";
 	$: path = $page.path.slice(1);
 </script>
 
+<style>
+	.centerer {
+		@apply flex-1 flex flex-col items-center justify-center;
+	}
+</style>
+
 <Navbar {segment} {path}/>
 
 <svelte:head>
@@ -41,10 +47,11 @@ import Card from "../components/Card.svelte";
 
 <main class="mt-16 px-3 md:px-6 py-4 bg-gray-100">
 
-{#if $preloading && && $delayedPreloading}
-<Card>
+{#if $preloading && $delayedPreloading}
+<div class="centerer h-72">
 	<Jumper size="200" color="#FF3E00" unit="px" duration="1s"></Jumper>
-</Card>
+</div>
+
 {:else}
 <slot />
 {/if}

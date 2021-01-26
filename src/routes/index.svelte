@@ -5,12 +5,6 @@
 
 
 </script>
-
-<style>
-	.centerer {
-		@apply flex-1 flex flex-col items-center justify-center;
-	}
-</style>
    
 <div class="lg:px-10">
 	<Card>
