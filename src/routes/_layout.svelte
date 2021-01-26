@@ -49,7 +49,7 @@ import Card from "../components/Card.svelte";
 
 {#if $preloading && $delayedPreloading}
 <div class="centerer h-72">
-	<Jumper size="200" color="#FF3E00" unit="px" duration="1s"></Jumper>
+	<p>loading...</p>
 </div>
 
 {:else}
