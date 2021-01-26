@@ -36,6 +36,7 @@
     "express": "^4.17.1",
     "mapbox-gl": "^2.0.1",
     "sirv": "^1.0.10",
+    "svelte-loading-spinners": "^0.1.4",
     "svelte-routing": "^1.5.0",
     "svelte-simple-modal": "^0.6.1"
   },
