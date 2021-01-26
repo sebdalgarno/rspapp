@@ -16,8 +16,8 @@ export const mapbox_style = "mapbox://styles/northbeachconsulting/ckk9ybto8082e1
 export const coordinates = [-124.75, 54.77];
 
 export const bounds = [
-	[-136.92, 47.24],
-	[-113.83, 56.45],
+	[-135.4, 47.8],
+	[-113.8, 56.9],
 ];
 
 export const year_min = 1970;
