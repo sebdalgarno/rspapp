@@ -16,7 +16,7 @@ export const mapbox_style = "mapbox://styles/northbeachconsulting/ckk9ybto8082e1
 export const coordinates = [-124.75, 54.77];
 
 export const bounds = [
-	[-135.4, 47.8],
+	[-134.7, 48.1],
 	[-113.8, 56.9],
 ];
 
