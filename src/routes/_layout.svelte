@@ -12,7 +12,7 @@ export async function preload(page, session) {
 	import { stores } from "@sapper/app";
 	import Navbar from '../components/Navbar.svelte';
 	import Footer from "../components/FooterSmall.svelte"; 
-	import { Jumper } from 'svelte-loading-spinners';
+    import PageLoadingBar from "sapper-page-loading-bar/PageLoadingBar.svelte"
 
 	import { derived } from 'svelte/store';
 import Card from "../components/Card.svelte";
@@ -48,12 +48,10 @@ import Card from "../components/Card.svelte";
 <main class="mt-16 px-3 md:px-6 py-4 bg-gray-100">
 
 {#if $preloading && $delayedPreloading}
-	<div class="centerer h-72">
-		<p>loading... (I'll add a nicer spiner here)</p>
-	</div>
-{:else}
+	<PageLoadingBar />
+	{/if}
+
 <slot />
-{/if}
 	
 </main>
 <Footer />
