@@ -1,8 +1,23 @@
 <script>
-  export let text = "Tips";
-</script>
-
-<button
-  class="text-xs font-semibold inline-block py-1 px-2 rounded text-indigo-800 hover:text-indigo-900 bg-indigo-200 hover:bg-opacity-100 bg-opacity-80 last:mr-0 mr-1">
-  {text}
-</button>
+    export let tips1;
+    export let tips2;
+  </script>
+  
+  <style>
+    .title {
+      @apply text-xl pt-4 pb-1;
+    }
+  
+    .text {
+      @apply text-sm text-gray-900;
+    }
+  
+  </style>
+  
+  <div class="z-50">
+    <p class="title">Tips for exploring the data</p>
+    <p class="text">{tips1}</p>
+    <br>
+    <p class="text">{tips2}</p>
+  </div>
+  

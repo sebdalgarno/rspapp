@@ -58,7 +58,6 @@ let icon = faMap;
           rel=prefetch aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers"
           class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500':'text-gray-800'} hover:bg-gray-100 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
-  
           Forest Layers
         </a>
         </li>
@@ -67,7 +66,6 @@ let icon = faMap;
           rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
           class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 ':'text-gray-800' } hover:bg-gray-100  px-3 py-2 flex items-center text-xs uppercase font-bold"        >
           <Icon class="mr-2 text-sm {path.indexOf('logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
-
           Logging History
         </a>
         </li>

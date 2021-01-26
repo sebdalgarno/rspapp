@@ -1,13 +1,14 @@
 <script>
   // components for this layout
   import MapLogging from "../components/MapLogging.svelte";
-  import Tips from "../components/Tips.svelte";
+  import ButtonTips from "../components/ButtonTips.svelte";
   import Card from "../components/Card.svelte";
-  import CardHeader from "../components/CardHeader.svelte";
   import InfoLogging from "../components/InfoLogging.svelte";
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
   import Legend from "../components/Legend.svelte";
+  import Modal from "svelte-simple-modal";
+  import ModalTips from "../components/ModalTips.svelte";
 
   import chroma from "chroma-js";
   import data from "../year_totals.js";
@@ -74,7 +75,11 @@
 </script>
 
   <Card>
-    <CardHeader {region} />
+    <div class="absolute left-3 p-2">
+      <Modal >
+        <ModalTips />
+      </Modal>
+  </div>
     <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
       <div class="flex flex-row justify-center ">
