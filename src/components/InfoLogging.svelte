@@ -9,25 +9,34 @@
     return el.total;
   });
 
+  function prepThousand(num) {    
+    return +(Math.round(num/1000));
+}
+
+function prepMillion(num) {    
+    return +(Math.round(num/1000000 + "e+1")  + "e-1");
+}
+
   const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   let logged_total;
-  $: logged_total = numberWithCommas(sumValues(totals));
+  $: logged_total = prepMillion(sumValues(totals));
 
   let logged_year;
-  $: logged_year = numberWithCommas(data_year[0].total);
+  $: logged_year = prepThousand(data_year[0].total);
 </script>
 
 <div class="">
-  <span class="logged">{logged_year}</span>
-  <span class="text">hectares logged in</span>
+  <!-- <span class="text"> Around</span> -->
+  <span class="logged">{logged_year} thousand</span>
+  <span class="text"> hectares logged in</span>
   <span class="year">{year}</span>
   <br />
-  <span class="logged">{logged_total}</span>
-  <span class="text">hectares logged from</span>
+  <span class="logged">{logged_total} million</span>
+  <span class="text"> hectares logged from</span>
   <span class="year">{year_min}</span>
   <span class="text">to</span>
   <span class="year">{year}</span>
