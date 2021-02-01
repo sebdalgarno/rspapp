@@ -33,12 +33,10 @@ regions,
   export let ecoregion;
 
   let select_bounds;
-  console.log(ecoregion);
   $: if (ecoregion) {
     select_bounds = region_bounds.filter(function (x) {
       return x.ecoregion == ecoregion.value;
     });
-    console.log(select_bounds[0].bbox);
     map.fitBounds(select_bounds[0].bbox, {
       padding: 100,
     });
@@ -153,14 +151,14 @@ regions,
       map.on("click", "ecoregions_poly", function (e) {
         if (e.features.length > 0) {
           if (clickedEcoregion) {
-            map.setFeatureState(
-              {
-                source: source_ecoregions[0],
-                sourceLayer: source_layer_ecoregions[0],
-                id: clickedEcoregion,
-              },
-              { click: false }
-            );
+            regions.forEach(function(f) {
+    map.setFeatureState( {
+      source: source_ecoregions[0],
+        sourceLayer: source_layer_ecoregions[0],
+        id: f.value,
+    }, 
+    { click: false });
+    })
           }
           clickedEcoregion = e.features[0].id;
           map.setFeatureState(

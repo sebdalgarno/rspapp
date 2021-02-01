@@ -1,12 +1,11 @@
 <script context="module">
-
   export async function preload(page, session) {
-      const res = await this.fetch(`year_totals.json`);
-      const year_totals = await res.json();
-  
-      return { year_totals };
-    }
-  </script>
+    const res = await this.fetch(`year_totals.json`);
+    const year_totals = await res.json();
+
+    return { year_totals };
+  }
+</script>
 
 <script>
   // components for this layout
@@ -23,15 +22,15 @@
   import { regions } from "../consts";
 
   import chroma from "chroma-js";
-  import {
-    base_colors,
-    year_min,
-    year_max,
-  } from "../consts";
+  import { base_colors, year_min, year_max } from "../consts";
 
   export let year_totals;
   let ecoregion;
-  $: console.log(ecoregion)
+  let selected_ecoregion = "British Columbia";
+  $: if(ecoregion) {
+    selected_ecoregion = ecoregion.value
+  }
+  let selected_layer = "Harvest History"
   let year = 2019;
   let yeardiff = year_max - year_min + 1;
   let palette = chroma
@@ -39,9 +38,9 @@
     .scale()
     .correctLightness()
     .colors(40);
-  
+
   const groupBy = (item) => item.group;
-  let layers = ["Harvest History", "VRI Site Index", "Roads"]
+  let layers = ["Harvest History", "VRI Site Index", "Roads"];
 
   for (let i = 40; i < yeardiff; i++) {
     palette.push(palette[39]);
@@ -65,46 +64,53 @@
 
   function incrementYear() {
     const playing = setInterval(() => {
-      if(year != year_max && caption == "Pause"){
+      if (year != year_max && caption == "Pause") {
         year++;
       } else {
-        caption = "Play"
-        clearInterval(playing)
+        caption = "Play";
+        clearInterval(playing);
       }
-    }, 1000)
+    }, 1000);
   }
 
-  let caption = "Play"
+  let caption = "Play";
   function togglePlay() {
-    if(caption == "Play"){
-      caption = "Pause"
-      if(year == 2019){
+    if (caption == "Play") {
+      caption = "Pause";
+      if (year == 2019) {
         year = year_min + 1;
       }
     } else {
-      caption = "Play"
+      caption = "Play";
     }
-    incrementYear()
+    incrementYear();
   }
 </script>
 
-  <Card>
-
-    <div class="absolute left-3 p-2">
-      <Modal >
-        <ModalTips />
-      </Modal>
-  </div>
-    <div class="grid grid-cols-5 gap-12">
+<Card>
+  
+  <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
-
+      <div class="">
+        <Modal>
+          <ModalTips />
+        </Modal>
+      </div>
+      <h1 class="pt-3 text-2xl">{selected_ecoregion}</h1>
+      <p class="text-xl text-gray-700">{selected_layer}</p>
       <div class="flex flex-row justify-center ">
         <NumberInput bind:year on:play-pause={togglePlay} {caption} />
         <!-- <PlayButton /> -->
       </div>
       <div class="block relative w-full">
         <div class="items-center w-full bg-transparent border-collapse">
-          <ChartLogging {year} {year_min} {data_total} {map_palette} {palette} />
+          <ChartLogging
+            {year}
+            {year_min}
+            {data_total}
+            {map_palette}
+            {palette}
+          />
         </div>
         <div class="pt-4 text-center">
           <InfoLogging {year} {year_min} {data_year} {data_total} />
@@ -113,19 +119,27 @@
       <!-- </Card> -->
     </div>
     <div class="col-span-5 lg:col-span-3 ">
-
       <!-- <Card map={true}></Card> -->
       <div class="block w-full">
         <div class="items-center w-full bg-transparent border-collapse">
           <div class="grid grid-cols-2 gap-2">
             <div class="mb-2 col-span-2 lg:col-span-1">
-              <Select items={regions} {groupBy} placeholder="Select ecoregion..." bind:selectedValue={ecoregion}></Select>
+              <Select
+                items={regions}
+                {groupBy}
+                placeholder="Select ecoregion..."
+                bind:selectedValue={ecoregion}
+              />
             </div>
             <div class="mb-2 col-span-2 lg:col-span-1">
-              <Select items={layers} {groupBy} placeholder="Select map layer..."></Select>
+              <Select
+                items={layers}
+                {groupBy}
+                placeholder="Select map layer..."
+              />
             </div>
           </div>
-        
+
           <div class="absolute p-2">
             <Legend {palette} />
           </div>
@@ -133,6 +147,5 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 </Card>
-

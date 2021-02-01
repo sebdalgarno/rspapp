@@ -55,7 +55,7 @@
         labels: update_labels,
         datasets: [
           {
-            label: "Logged (Ha)",
+            label: "Harvested (Ha)",
             backgroundColor: update_palette,
             borderColor: "#1F2937",
             data: update_totals,
@@ -86,7 +86,7 @@
       },
       scaleLabel: {
         display: true,
-        labelString: 'Logged (Ha)'
+        labelString: 'Harvested (Ha)'
       },
       gridLines: {
                 color: "rgba(0, 0, 0, 0)",
