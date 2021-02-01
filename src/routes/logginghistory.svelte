@@ -19,6 +19,8 @@
   import Legend from "../components/Legend.svelte";
   import Modal from "svelte-simple-modal";
   import ModalTips from "../components/ModalTips.svelte";
+  import Select from "svelte-select";
+  import { regions } from "../consts";
 
   import chroma from "chroma-js";
   import {
@@ -35,6 +37,9 @@
     .scale()
     .correctLightness()
     .colors(40);
+  
+  const groupBy = (item) => item.group;
+  let layers = ["Harvest History", "VRI Site Index", "Roads"]
 
   for (let i = 40; i < yeardiff; i++) {
     palette.push(palette[39]);
@@ -82,6 +87,7 @@
 </script>
 
   <Card>
+
     <div class="absolute left-3 p-2">
       <Modal >
         <ModalTips />
@@ -89,6 +95,7 @@
   </div>
     <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
+
       <div class="flex flex-row justify-center ">
         <NumberInput bind:year on:play-pause={togglePlay} {caption} />
         <!-- <PlayButton /> -->
@@ -104,9 +111,19 @@
       <!-- </Card> -->
     </div>
     <div class="col-span-5 lg:col-span-3 ">
+
       <!-- <Card map={true}></Card> -->
       <div class="block w-full">
-        <div class="items-center w-full bg-transparent border-collapse ">
+        <div class="items-center w-full bg-transparent border-collapse">
+          <div class="grid grid-cols-2 gap-2">
+            <div class="mb-2 col-span-2 lg:col-span-1">
+              <Select items={regions} {groupBy} placeholder="Select ecoregion..."></Select>
+            </div>
+            <div class="mb-2 col-span-2 lg:col-span-1">
+              <Select items={layers} {groupBy} placeholder="Select map layer..."></Select>
+            </div>
+          </div>
+        
           <div class="absolute p-2">
             <Legend {palette} />
           </div>

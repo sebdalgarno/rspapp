@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "@sveltejs/pancake": "0.0.17",
+    "@turf/bbox": "^6.3.0",
+    "@turf/collect": "^6.3.0",
     "chart.js": "^2.9.4",
     "chroma": "0.0.1",
     "chroma-js": "^2.1.0",
@@ -67,7 +69,8 @@
     "sapper": "^0.28.10",
     "svelte": "^3.31.0",
     "svelte-preprocess": "^4.6.1",
-    "tailwindcss": "^2.0.2",
-    "svelte-simple-modal": "^0.6.1"
+    "svelte-select": "^3.16.1",
+    "svelte-simple-modal": "^0.6.1",
+    "tailwindcss": "^2.0.2"
   }
 }

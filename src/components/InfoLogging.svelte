@@ -18,9 +18,9 @@ function prepMillion(num) {
 }
 
   const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  // function numberWithCommas(x) {
+  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // }
 
   let logged_total;
   $: logged_total = prepMillion(sumValues(totals));

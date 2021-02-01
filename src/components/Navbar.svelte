@@ -1,9 +1,20 @@
 <script>
   // import { link } from "svelte-routing/src";
-  import Icon from 'fa-svelte'
-import { faMap } from '@fortawesome/free-solid-svg-icons/faMap'
+  import Icon from "fa-svelte";
+  import { faMap } from "@fortawesome/free-solid-svg-icons/faMap";
+  import Select from "svelte-select";
+  import { regions } from "../consts";
 
-let icon = faMap;
+  let icon = faMap;
+
+  // let selectedValue = {value: 'cake', label: 'Cake'};
+
+  function handleSelect(event) {
+    console.log("hi");
+    // .. do something here 🙂
+  }
+
+  const groupBy = (item) => item.group;
 
   // core components
   let navbarOpen = false;
@@ -13,11 +24,13 @@ let icon = faMap;
   }
   export let path;
   export let segment;
-
 </script>
-<!-- 
-<nav>
+
+
+<!-- <nav>
 	<ul>
+    <Select items={regions} {groupBy} placeholder="hi..."></Select>
+
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
 		<li><a aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers">Forest Layers</a></li>
 
@@ -35,48 +48,69 @@ let icon = faMap;
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
       <a
-      aria-current="{segment === undefined ? 'page' : undefined}" href="."
-        class="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"
-      >
+        aria-current={segment === undefined ? "page" : undefined}
+        href="."
+        class="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase">
         BC Forest Tool
       </a>
+      <!-- <Select items={regions} {groupBy} placeholder="Select region..."></Select> -->
+
       <button
         class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
         type="button"
-        on:click="{setNavbarOpen}"
-      >
-        <i class="fas fa-bars"></i>
+        on:click={setNavbarOpen}>
+        <i class="fas fa-bars" />
       </button>
     </div>
     <div
-      class="lg:flex flex-grow items-center {navbarOpen ? 'block':'hidden'}"
+      class="lg:flex flex-grow items-center {navbarOpen ? 'block' : 'hidden'}"
       id="example-navbar-warning"
     >
+
       <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+
         <li class="flex items-center">
           <a
-          rel=prefetch aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers"
-          class="{path.indexOf('forestlayers') !== -1 ? 'text-red-500':'text-gray-800'} hover:bg-gray-100 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
-          <Icon class="mr-2 text-sm {path.indexOf('forestlayers') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
-          Forest Layers
-        </a>
+            rel="prefetch"
+            aria-current={segment === "forestlayers" ? "page" : undefined}
+            href="forestlayers"
+            class="{path.indexOf('forestlayers') !== -1
+              ? 'text-red-500'
+              : 'text-gray-800'} hover:bg-gray-100 px-3 py-2 flex items-center text-xs uppercase font-bold">
+            <Icon
+              class="mr-2 text-sm {path.indexOf('forestlayers') !== -1
+                ? 'opacity-75'
+                : 'text-gray-400'}"
+              {icon}
+            />
+            Forest Layers
+          </a>
         </li>
         <li class="flex items-center">
           <a
-          rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory"
-          class="{path.indexOf('logginghistory') !== -1 ? 'text-red-500 ':'text-gray-800' } hover:bg-gray-100  px-3 py-2 flex items-center text-xs uppercase font-bold"        >
-          <Icon class="mr-2 text-sm {path.indexOf('logginghistory') !== -1 ? 'opacity-75' : 'text-gray-400'}" icon={icon}></Icon>
-          Logging History
-        </a>
+            rel="prefetch"
+            aria-current={segment === "logginghistory" ? "page" : undefined}
+            href="logginghistory"
+            class="{path.indexOf('logginghistory') !== -1
+              ? 'text-red-500 '
+              : 'text-gray-800'} hover:bg-gray-100  px-3 py-2 flex items-center text-xs uppercase font-bold">
+            <Icon
+              class="mr-2 text-sm {path.indexOf('logginghistory') !== -1
+                ? 'opacity-75'
+                : 'text-gray-400'}"
+              {icon}
+            />
+            Logging History
+          </a>
         </li>
         <li class="flex items-center">
           <a
-          aria-current="{segment === undefined ? 'page' : undefined}" href="."
-          class="hover:bg-gray-100   text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold"        >
-          Home
-        </a>
+            aria-current={segment === undefined ? "page" : undefined}
+            href="."
+            class="hover:bg-gray-100   text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+            Home
+          </a>
         </li>
-      
       </ul>
     </div>
   </div>
