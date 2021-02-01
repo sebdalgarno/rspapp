@@ -13,7 +13,8 @@
     mapbox_style,
     bounds,
     coordinates,
-    region_bounds
+    region_bounds,
+regions,
   } from "../consts";
 
   export let year = year_min;
@@ -25,28 +26,41 @@
 
   let done = false;
 
-  let fill_opacity = 0.75;
-
   let container;
   let map;
   let hoveredStateId = null;
   let clickedEcoregion = null;
   export let ecoregion;
-  console.log(clickedEcoregion)
 
   let select_bounds;
-  console.log(ecoregion)
-  $: if(ecoregion){
+  console.log(ecoregion);
+  $: if (ecoregion) {
     select_bounds = region_bounds.filter(function (x) {
-    return x.ecoregion == ecoregion.value;
-  });
-  console.log(select_bounds[0].bbox)
-  map.fitBounds(select_bounds[0].bbox, {
-            padding: 100,
-          });
-  } 
+      return x.ecoregion == ecoregion.value;
+    });
+    console.log(select_bounds[0].bbox);
+    map.fitBounds(select_bounds[0].bbox, {
+      padding: 100,
+    });
+    regions.forEach(function(f) {
+      console.log(f)
+    map.setFeatureState( {
+      source: source_ecoregions[0],
+        sourceLayer: source_layer_ecoregions[0],
+        id: f.value,
+    }, 
+    { click: false });
+    })
+    map.setFeatureState(
+      {
+        source: source_ecoregions[0],
+        sourceLayer: source_layer_ecoregions[0],
+        id: ecoregion.value,
+      },
+      { click: true }
+    );
+  }
   // $: map.fitBounds(select_bounds);
-
 
   function filterAccumulate() {
     //   map.setFilter("logged_simple1", ["<=", "year", year]);
@@ -82,7 +96,6 @@
       attributionControl: false,
       // logoPosition: "bottom-right",
     });
-
 
     map.on("load", function () {
       map.addSource(source_harvest[0], {
@@ -173,9 +186,9 @@
       done = true;
     });
 
-      map.on("mousemove", "ecoregions_poly", function (e) {
-        map.getCanvas().style.cursor = "pointer";
-      });
+    map.on("mousemove", "ecoregions_poly", function (e) {
+      map.getCanvas().style.cursor = "pointer";
+    });
   });
 </script>
 
