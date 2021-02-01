@@ -30,6 +30,8 @@
   } from "../consts";
 
   export let year_totals;
+  let ecoregion;
+  $: console.log(ecoregion)
   let year = 2019;
   let yeardiff = year_max - year_min + 1;
   let palette = chroma
@@ -117,7 +119,7 @@
         <div class="items-center w-full bg-transparent border-collapse">
           <div class="grid grid-cols-2 gap-2">
             <div class="mb-2 col-span-2 lg:col-span-1">
-              <Select items={regions} {groupBy} placeholder="Select ecoregion..."></Select>
+              <Select items={regions} {groupBy} placeholder="Select ecoregion..." bind:selectedValue={ecoregion}></Select>
             </div>
             <div class="mb-2 col-span-2 lg:col-span-1">
               <Select items={layers} {groupBy} placeholder="Select map layer..."></Select>
@@ -127,7 +129,7 @@
           <div class="absolute p-2">
             <Legend {palette} />
           </div>
-          <MapLogging {year} {map_palette} />
+          <MapLogging {year} {map_palette} {ecoregion} />
         </div>
       </div>
     </div>

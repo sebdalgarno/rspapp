@@ -13,6 +13,7 @@
     mapbox_style,
     bounds,
     coordinates,
+    region_bounds
   } from "../consts";
 
   export let year = year_min;
@@ -30,7 +31,21 @@
   let map;
   let hoveredStateId = null;
   let clickedEcoregion = null;
+  export let ecoregion;
   console.log(clickedEcoregion)
+
+  let select_bounds;
+  console.log(ecoregion)
+  $: if(ecoregion){
+    select_bounds = region_bounds.filter(function (x) {
+    return x.ecoregion == ecoregion.value;
+  });
+  console.log(select_bounds[0].bbox)
+  map.fitBounds(select_bounds[0].bbox, {
+            padding: 100,
+          });
+  } 
+  // $: map.fitBounds(select_bounds);
 
 
   function filterAccumulate() {
@@ -158,21 +173,9 @@
       done = true;
     });
 
-    //   var popup = new mapbox.Popup({
-    //     closeButton: false,
-    //     closeOnClick: false,
-    //   });
-
-    /////// hover popups for logging areas
-    //   map.on("mousemove", "logged", function (e) {
-    //     map.getCanvas().style.cursor = "pointer";
-
-    //     var coordinates = e.lngLat;
-    //     var description = `
-    //     <p class='inline-block font-bold'> logged in ${e.features[0].properties.YearHarvested}</p>`;
-
-    //     popup.setLngLat(coordinates).setHTML(description).addTo(map);
-    //   });
+      map.on("mousemove", "ecoregions_poly", function (e) {
+        map.getCanvas().style.cursor = "pointer";
+      });
   });
 </script>
 
