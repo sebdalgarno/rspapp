@@ -73,6 +73,10 @@
     }, 1000);
   }
 
+  function updateEcoregion(event) {
+    selected_ecoregion = event.detail.value
+  }
+
   let caption = "Play";
   function togglePlay() {
     if (caption == "Play") {
@@ -143,7 +147,7 @@
           <div class="absolute p-2">
             <Legend {palette} />
           </div>
-          <MapLogging {year} {map_palette} {ecoregion} />
+          <MapLogging {year} {map_palette} {ecoregion} on:update-ecoregion={updateEcoregion} />
         </div>
       </div>
     </div>

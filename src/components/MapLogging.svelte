@@ -14,8 +14,11 @@
     bounds,
     coordinates,
     region_bounds,
-regions,
+    regions,
   } from "../consts";
+  import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
 
   export let year = year_min;
   export let map_palette;
@@ -40,14 +43,16 @@ regions,
     map.fitBounds(select_bounds[0].bbox, {
       padding: 100,
     });
-    regions.forEach(function(f) {
-    map.setFeatureState( {
-      source: source_ecoregions[0],
-        sourceLayer: source_layer_ecoregions[0],
-        id: f.value,
-    }, 
-    { click: false });
-    })
+    regions.forEach(function (f) {
+      map.setFeatureState(
+        {
+          source: source_ecoregions[0],
+          sourceLayer: source_layer_ecoregions[0],
+          id: f.value,
+        },
+        { click: false }
+      );
+    });
     map.setFeatureState(
       {
         source: source_ecoregions[0],
@@ -57,8 +62,6 @@ regions,
       { click: true }
     );
   }
-  // $: map.fitBounds(select_bounds);
-
   function filterAccumulate() {
     map.setFilter("harvest", ["<=", "year", year]);
   }
@@ -151,16 +154,21 @@ regions,
       map.on("click", "ecoregions_poly", function (e) {
         if (e.features.length > 0) {
           if (clickedEcoregion) {
-            regions.forEach(function(f) {
-    map.setFeatureState( {
-      source: source_ecoregions[0],
-        sourceLayer: source_layer_ecoregions[0],
-        id: f.value,
-    }, 
-    { click: false });
-    })
+            regions.forEach(function (f) {
+              map.setFeatureState(
+                {
+                  source: source_ecoregions[0],
+                  sourceLayer: source_layer_ecoregions[0],
+                  id: f.value,
+                },
+                { click: false }
+              );
+            });
           }
           clickedEcoregion = e.features[0].id;
+          dispatch('update-ecoregion', {
+			value: clickedEcoregion
+		});
           map.setFeatureState(
             {
               source: source_ecoregions[0],
@@ -191,5 +199,4 @@ regions,
 </div>
 
 <style>
-
 </style>
