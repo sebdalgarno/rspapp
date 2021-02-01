@@ -43,7 +43,6 @@ regions,
       padding: 100,
     });
     regions.forEach(function(f) {
-      console.log(f)
     map.setFeatureState( {
       source: source_ecoregions[0],
         sourceLayer: source_layer_ecoregions[0],
@@ -63,7 +62,6 @@ regions,
   // $: map.fitBounds(select_bounds);
 
   function filterAccumulate() {
-    //   map.setFilter("logged_simple1", ["<=", "year", year]);
     map.setFilter("harvest", ["<=", "year", year]);
   }
 
@@ -77,7 +75,6 @@ regions,
   };
 
   function setPalette(year) {
-    //   map.setPaintProperty("logged_simple1", "fill-color", paint_property(year));
     map.setPaintProperty("harvest", "fill-color", paint_property(year));
   }
 
@@ -94,7 +91,6 @@ regions,
       zoom: 3,
       bearing: 0,
       attributionControl: false,
-      // logoPosition: "bottom-right",
     });
 
     map.on("load", function () {
@@ -197,7 +193,5 @@ regions,
 </div>
 
 <style>
-  .mapboxgl-ctrl-attrib-inner {
-    display: none !important;
-  }
+
 </style>
