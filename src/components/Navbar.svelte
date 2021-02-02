@@ -7,13 +7,6 @@
 
   let icon = faMap;
 
-  // let selectedValue = {value: 'cake', label: 'Cake'};
-
-  function handleSelect(event) {
-    console.log("hi");
-    // .. do something here 🙂
-  }
-
   const groupBy = (item) => item.group;
 
   // core components

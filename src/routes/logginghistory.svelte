@@ -39,6 +39,11 @@
     .correctLightness()
     .colors(40);
 
+  let year_total_region;
+  $: year_total_region = year_totals.filter(function (x) {
+    return x.name == selected_ecoregion;
+  });
+
   const groupBy = (item) => item.group;
   let layers = ["Harvest History", "VRI Site Index", "Roads"];
 
@@ -53,12 +58,13 @@
   }
 
   let data_year;
-  $: data_year = year_totals.filter(function (x) {
+  $: data_year = year_total_region.filter(function (x) {
+
     return x.year == year;
   });
 
   let data_total;
-  $: data_total = year_totals.filter(function (x) {
+  $: data_total = year_total_region.filter(function (x) {
     return x.year <= year;
   });
 
@@ -74,7 +80,7 @@
   }
 
   function updateEcoregion(event) {
-    selected_ecoregion = event.detail.value
+    ecoregion = {value: event.detail.value, label: event.detail.value}
   }
 
   let caption = "Play";
