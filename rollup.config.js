@@ -8,6 +8,7 @@ import babel from "@rollup/plugin-babel";
 import colors from "kleur";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
+import json from "@rollup/plugin-json";
 import pkg from "./package.json";
 
 const { createPreprocessors } = require("./svelte.config.js");
@@ -49,6 +50,7 @@ export default {
 			commonjs({
 				sourceMap: !!sourcemap,
 			}),
+			json(),
 
 			legacy && babel({
 				extensions: [".js", ".mjs", ".html", ".svelte"],

@@ -1,13 +1,7 @@
-const yeartotals = JSON.parse("./year_totals.json");
+import csv from "csvtojson";
 
-// let data = data_clean
-
-// const data = csv
-//   .split("\n")
-//   .slice(1)
-//   .map((str) => {
-//     const [x, old, second, y] = str.split(",").map(parseFloat);
-//     return { x, old, second, y };
-//   });
-
-export default yeartotals;
+csv()
+	.fromFile("../data/year_totals.csv")
+	.then((data) => {
+		console.log("json data", data);
+	});

@@ -1,10 +1,10 @@
 <script context="module">
-  export async function preload(page, session) {
-    const res = await this.fetch(`year_totals.json`);
-    const year_totals = await res.json();
+  // export async function preload(page, session) {
+  //   const res = await this.fetch(`year_totals.json`);
+  //   const year_totals = await res.json();
 
-    return { year_totals };
-  }
+  //   return { year_totals };
+  // }
 </script>
 
 <script>
@@ -18,11 +18,11 @@
   import Legend from "../components/Legend.svelte";
   import Select from "svelte-select";
   import { regions } from "../consts";
+  import yearTotals from "../year_totals.json";
 
   import chroma from "chroma-js";
   import { base_colors, year_min, year_max } from "../consts";
 
-  export let year_totals;
   let ecoregion;
   let selected_ecoregion = "British Columbia";
   $: if(ecoregion) {
@@ -38,7 +38,7 @@
     .colors(40);
 
   let year_total_region;
-  $: year_total_region = year_totals.filter(function (x) {
+  $: year_total_region = yearTotals.filter(function (x) {
     return x.name == selected_ecoregion;
   });
 
