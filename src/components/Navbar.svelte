@@ -26,7 +26,7 @@
     <div
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
-    <span class="">
+    <span class="mr-3">
       <Modal>
         <ModalTips />
       </Modal>

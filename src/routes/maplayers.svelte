@@ -71,7 +71,7 @@
       if (year != year_max && caption == "Pause") {
         year++;
       } else {
-        caption = "Play";
+        caption = "Play animation";
         clearInterval(playing);
       }
     }, 1000);
@@ -81,15 +81,15 @@
     ecoregion = {value: event.detail.value, label: event.detail.value}
   }
 
-  let caption = "Play";
+  let caption = "Play animation";
   function togglePlay() {
-    if (caption == "Play") {
+    if (caption == "Play animation") {
       caption = "Pause";
       if (year == 2019) {
         year = year_min + 1;
       }
     } else {
-      caption = "Play";
+      caption = "Play animation";
     }
     incrementYear();
   }
@@ -98,10 +98,23 @@
 <Card>
   
   <div class="grid grid-cols-5 gap-12">
-    <div class="col-span-5 lg:col-span-2 ">
-      
-      <h1 class="pt-3 text-2xl">{selected_ecoregion}</h1>
-      <p class="text-xl text-gray-700">{selected_layer}</p>
+    <div class="col-span-5 lg:col-span-2">
+      <div class="grid-cols-1">
+        <div class="col-span-1">
+          <h1 class="text-2xl">{selected_ecoregion}</h1>
+        </div>
+        <div class="col-span-1">
+          <p class="text-xl text-gray-700">{selected_layer}</p>
+        </div>
+        <div class="col-span-1">
+          <button
+          class="bg-indigo-100 hover:bg-opacity-100 bg-opacity-80 text-indigo-900 hover:text-indigo-900 px-3 py-2 rounded-full text-xs mt-2"
+          on:click={togglePlay}>
+          {caption}
+        </button>
+        </div>
+      </div>
+     
       <div class="flex flex-row justify-center ">
         <NumberInput bind:year on:play-pause={togglePlay} {caption} />
         <!-- <PlayButton /> -->

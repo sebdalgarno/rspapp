@@ -20,7 +20,7 @@
     }
   </script>
   
-  <div class="custom-number-input h-10 w-64 m-10">
+  <div class="custom-number-input h-10 w-48 m-10">
     <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent">
       <button on:click={minusYear} class=" pluscont">
         <span class="plus">−</span>
@@ -34,11 +34,7 @@
       <button on:click={addYear} class=" pluscont">
         <span class="plus">+</span>
       </button>
-      <button
-        class=" bg-indigo-200 hover:bg-opacity-100 bg-opacity-80 text-indigo-900 hover:text-indigo-900 block px-3 rounded-full text-xs m-1"
-        on:click={playPause}>
-        {caption}
-      </button>
+
     </div>
   </div>
   
