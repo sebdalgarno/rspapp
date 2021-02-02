@@ -16,8 +16,6 @@
   import ChartLogging from "../components/ChartLogging.svelte";
   import NumberInput from "../components/NumberInput.svelte";
   import Legend from "../components/Legend.svelte";
-  import Modal from "svelte-simple-modal";
-  import ModalTips from "../components/ModalTips.svelte";
   import Select from "svelte-select";
   import { regions } from "../consts";
 
@@ -101,11 +99,7 @@
   
   <div class="grid grid-cols-5 gap-12">
     <div class="col-span-5 lg:col-span-2 ">
-      <div class="">
-        <Modal>
-          <ModalTips />
-        </Modal>
-      </div>
+      
       <h1 class="pt-3 text-2xl">{selected_ecoregion}</h1>
       <p class="text-xl text-gray-700">{selected_layer}</p>
       <div class="flex flex-row justify-center ">
@@ -147,9 +141,8 @@
                 {groupBy}
                 placeholder="Select map layer..."
               />
-            </div>
+            </div>         
           </div>
-
           <div class="absolute p-2">
             <Legend {palette} />
           </div>

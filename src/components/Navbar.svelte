@@ -2,6 +2,8 @@
   // import { link } from "svelte-routing/src";
   import Icon from "fa-svelte";
   import { faMap } from "@fortawesome/free-solid-svg-icons/faMap";
+  import Modal from "svelte-simple-modal";
+  import ModalTips from "../components/ModalTips.svelte";
 
   let icon = faMap;
 
@@ -24,6 +26,11 @@
     <div
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
+    <span class="">
+      <Modal>
+        <ModalTips />
+      </Modal>
+    </span>
       <a
         aria-current={segment === undefined ? "page" : undefined}
         href="."
