@@ -12,10 +12,10 @@
     source_ecoregions,
     mapbox_style,
     bounds,
-    coordinates,
-    region_bounds,
-    regions,
+    coordinates
   } from "../consts";
+  import regions from "../regions.json"
+  import regionBounds from "../bbox.json"
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -37,7 +37,7 @@
 
   let select_bounds;
   $: if (ecoregion) {
-    select_bounds = region_bounds.filter(function (x) {
+    select_bounds = regionBounds.filter(function (x) {
       return x.ecoregion == ecoregion.value;
     });
     map.fitBounds(select_bounds[0].bbox, {

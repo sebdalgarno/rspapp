@@ -17,7 +17,7 @@
   import NumberInput from "../components/NumberInput.svelte";
   import Legend from "../components/Legend.svelte";
   import Select from "svelte-select";
-  import { regions } from "../consts";
+  import regions from "../regions.json";
   import yearTotals from "../year_totals.json";
 
   import chroma from "chroma-js";
