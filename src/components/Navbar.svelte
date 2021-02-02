@@ -2,12 +2,8 @@
   // import { link } from "svelte-routing/src";
   import Icon from "fa-svelte";
   import { faMap } from "@fortawesome/free-solid-svg-icons/faMap";
-  import Select from "svelte-select";
-  import { regions } from "../consts";
 
   let icon = faMap;
-
-  const groupBy = (item) => item.group;
 
   // core components
   let navbarOpen = false;
@@ -18,18 +14,6 @@
   export let path;
   export let segment;
 </script>
-
-
-<!-- <nav>
-	<ul>
-    <Select items={regions} {groupBy} placeholder="hi..."></Select>
-
-		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
-		<li><a aria-current="{segment === 'forestlayers' ? 'page' : undefined}" href="forestlayers">Forest Layers</a></li>
-
-		<li><a rel=prefetch aria-current="{segment === 'logginghistory' ? 'page' : undefined}" href="logginghistory">Logging History</a></li>
-	</ul>
-</nav> -->
 
 <nav
   class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow"
@@ -46,8 +30,6 @@
         class="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase">
         BC Forest Tool
       </a>
-      <!-- <Select items={regions} {groupBy} placeholder="Select region..."></Select> -->
-
       <button
         class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
         type="button"
@@ -59,41 +41,40 @@
       class="lg:flex flex-grow items-center {navbarOpen ? 'block' : 'hidden'}"
       id="example-navbar-warning"
     >
-
       <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
 
         <li class="flex items-center">
           <a
             rel="prefetch"
-            aria-current={segment === "forestlayers" ? "page" : undefined}
-            href="forestlayers"
-            class="{path.indexOf('forestlayers') !== -1
+            aria-current={segment === "derivedlayers" ? "page" : undefined}
+            href="derivedlayers"
+            class="{path.indexOf('derivedlayers') !== -1
               ? 'text-red-500'
               : 'text-gray-800'} hover:bg-gray-100 px-3 py-2 flex items-center text-xs uppercase font-bold">
             <Icon
-              class="mr-2 text-sm {path.indexOf('forestlayers') !== -1
+              class="mr-2 text-sm {path.indexOf('derivedlayers') !== -1
                 ? 'opacity-75'
                 : 'text-gray-400'}"
               {icon}
             />
-            Forest Layers
+            Derived Layers
           </a>
         </li>
         <li class="flex items-center">
           <a
             rel="prefetch"
-            aria-current={segment === "logginghistory" ? "page" : undefined}
-            href="logginghistory"
-            class="{path.indexOf('logginghistory') !== -1
+            aria-current={segment === "maplayers" ? "page" : undefined}
+            href="maplayers"
+            class="{path.indexOf('maplayers') !== -1
               ? 'text-red-500 '
               : 'text-gray-800'} hover:bg-gray-100  px-3 py-2 flex items-center text-xs uppercase font-bold">
             <Icon
-              class="mr-2 text-sm {path.indexOf('logginghistory') !== -1
+              class="mr-2 text-sm {path.indexOf('maplayers') !== -1
                 ? 'opacity-75'
                 : 'text-gray-400'}"
               {icon}
             />
-            Logging History
+            Map Layers
           </a>
         </li>
         <li class="flex items-center">

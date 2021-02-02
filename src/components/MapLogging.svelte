@@ -41,7 +41,7 @@
       return x.ecoregion == ecoregion.value;
     });
     map.fitBounds(select_bounds[0].bbox, {
-      padding: 150,
+      padding: 130,
     });
     regions.forEach(function (f) {
       map.setFeatureState(
@@ -146,7 +146,7 @@
           "line-width": [
             "case",
             ["boolean", ["feature-state", "click"], false],
-            1.5,
+            2,
             0.5,
           ],
         },
@@ -169,7 +169,6 @@
             });
           }
           clickedEcoregion = e.features[0].id;
-          console.log(clickedEcoregion)
           dispatch("update-ecoregion", {
             value: clickedEcoregion,
           });
@@ -183,7 +182,7 @@
           );
           var bounds = bbox(e.features[0].geometry);
           map.fitBounds(bounds, {
-            padding: 150,
+            padding: 130,
           });
         }
       });
