@@ -9,33 +9,43 @@
     return el.total;
   });
 
-  function prepThousand(num) {    
-    return +(Math.round(num/1000));
-}
-
-function prepMillion(num) {    
-    return +(Math.round(num/1000000 + "e+1")  + "e-1");
-}
-
-  const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
-  // function numberWithCommas(x) {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // function prepThousand(num) {
+  //   return +Math.round(num / 1000);
   // }
 
+  // function prepMillion(num) {
+  //   return +(Math.round(num / 1000000 + "e+1") + "e-1");
+  // }
+
+  function sumValues(numbers) {
+    var x = numbers.reduce(function (prev, curr) {
+      return curr + prev;
+    }, 0);
+    return x;
+  }
+  // const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   let logged_total;
-  $: logged_total = prepMillion(sumValues(totals));
+  $: logged_total = numberWithCommas(sumValues(totals));
 
   let logged_year;
-  $: logged_year = prepThousand(data_year[0].total);
+  $: if(data_year[0]){
+    logged_year = numberWithCommas(data_year[0].total)
+  } else {
+    logged_year = 0
+  } 
 </script>
 
 <div class="">
   <!-- <span class="text"> Around</span> -->
-  <span class="logged">{logged_year} thousand</span>
+  <span class="logged">{logged_year}</span>
   <span class="text"> hectares logged in</span>
   <span class="year">{year}</span>
   <br />
-  <span class="logged">{logged_total} million</span>
+  <span class="logged">{logged_total}</span>
   <span class="text"> hectares logged from</span>
   <span class="year">{year_min}</span>
   <span class="text">to</span>
@@ -50,6 +60,6 @@ function prepMillion(num) {
     @apply text-indigo-700 text-xl;
   }
   .text {
-     @apply text-gray-800;   
-    }
+    @apply text-gray-800;
+  }
 </style>

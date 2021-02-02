@@ -16,9 +16,9 @@
     region_bounds,
     regions,
   } from "../consts";
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
   export let year = year_min;
   export let map_palette;
@@ -41,7 +41,7 @@
       return x.ecoregion == ecoregion.value;
     });
     map.fitBounds(select_bounds[0].bbox, {
-      padding: 100,
+      padding: 150,
     });
     regions.forEach(function (f) {
       map.setFeatureState(
@@ -152,6 +152,9 @@
         },
       });
       map.on("click", "ecoregions_poly", function (e) {
+        dispatch("update-ecoregion", {
+            value: clickedEcoregion,
+          });
         if (e.features.length > 0) {
           if (clickedEcoregion) {
             regions.forEach(function (f) {
@@ -166,9 +169,10 @@
             });
           }
           clickedEcoregion = e.features[0].id;
-          dispatch('update-ecoregion', {
-			value: clickedEcoregion
-		});
+          console.log(clickedEcoregion)
+          dispatch("update-ecoregion", {
+            value: clickedEcoregion,
+          });
           map.setFeatureState(
             {
               source: source_ecoregions[0],
@@ -179,7 +183,7 @@
           );
           var bounds = bbox(e.features[0].geometry);
           map.fitBounds(bounds, {
-            padding: 100,
+            padding: 150,
           });
         }
       });
