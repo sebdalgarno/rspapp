@@ -74,7 +74,7 @@
         caption = "Play animation";
         clearInterval(playing);
       }
-    }, 1000);
+    }, 750);
   }
 
   function updateEcoregion(event) {
